@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const petSchema = new Schema(
     {
-      petname: {
+      petName: {
         type: String,
         required: true,
         unique: true,
