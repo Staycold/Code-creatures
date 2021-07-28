@@ -27,3 +27,11 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const ADD_PET = gql`
+mutation addPet($petData: petStats!){
+    addPet:(petData:$petData)
+
+}
+
+`;
