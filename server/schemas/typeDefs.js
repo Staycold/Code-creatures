@@ -17,7 +17,7 @@ type: Auth {
 
 type Pets {
     petId: ID
-    petname: String!
+    petName: String!
     experience: Int!
     level: Int!
 
