@@ -15,3 +15,20 @@ me {
     }
 }
 `
+;
+
+export const GET_CHALLENGE = gql`
+{
+challenge {
+        questionId
+        question
+        correctAnswer
+        experience
+        choices{
+            answer
+        }
+    }
+}
+`
+;
+

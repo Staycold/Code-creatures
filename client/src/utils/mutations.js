@@ -34,4 +34,5 @@ mutation addPet($petData: petStats!){
 
 }
 
-`;
+`
+;
