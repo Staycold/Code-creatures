@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <main>
             <div>
-                Footer
+                Cold Triumvirate 🥶🥶🥶
             </div>
         </main>
     );

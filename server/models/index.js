@@ -1,7 +1,7 @@
 const User = require('./User')
-const Pets= require('./Pets')
+const {Pet}= require('./Pet')
 const Answer = require('./Answer')
 const Challenge = require('./Challenge')
 
 
-module.exports = {User, Pets, Answer, Challenge};
+module.exports = {User, Pet, Answer, Challenge};

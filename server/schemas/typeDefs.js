@@ -35,6 +35,7 @@ type Query {
     me: User
     users: [User]
     challenges: [Challenge]
+    pets:[Pets]
 
 }
 

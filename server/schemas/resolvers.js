@@ -1,5 +1,4 @@
-const { User, Challenge} = require('../models')
-const { Pets } = require('../models/Pets.js');
+const { User, Challenge, Pet} = require('../models')
 const { AuthenticationError } = require('apollo-server-express')
 const { signToken } = require('../utils/auth')
 
@@ -20,7 +19,13 @@ const resolvers = {
           challenges: async () => {
             const challenges = await Challenge.find({});
             return challenges
+          },
+          pets: async () => {
+            const pets = await Pet.find({});
+            return pets
           }
+         
+         
     },
 
     Mutation: {
@@ -46,8 +51,11 @@ const resolvers = {
         },
 
         addPet: async (parent, { petName }) => {
-            const pet = await Pets.create({ petName });
-            //const token = signToken(user);
+            //create the new pet
+            //update the user with the new created pet
+
+            const pet = await Pet.create({ petName });
+            const token = signToken(user);
             return { pet }
             },
         addChallenge: async (parent, args) =>{
