@@ -1,0 +1,10 @@
+#pet1 {
+    left:0;
+    width:400px;
+    height: 400px;
+    background:url('../../images/WhitePet2_Png.png') 0 0;
+}
+
+#pet1:hover {
+    background:url('../../images/WhitePet1_Png.png') 0 0;
+}
