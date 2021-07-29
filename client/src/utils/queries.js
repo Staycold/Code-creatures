@@ -19,13 +19,11 @@ me {
 
 export const GET_CHALLENGE = gql`
 {
-challenge {
+challenges{
         _id
         question
         correctAnswer
-        choices{
-            answer
-        }
+        choices
     }
 }
 `

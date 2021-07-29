@@ -36,6 +36,7 @@ type Query {
     users: [User]
     challenges: [Challenge]
     pets:[Pets]
+    challenge(challengeId: ID!): Challenge
 
 }
 
