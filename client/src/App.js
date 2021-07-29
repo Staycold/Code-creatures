@@ -51,7 +51,7 @@ function App() {
             <Route exact path='/' component={Home} />
             <Route exact path='/profile' component={Profile} />
             {/* <Route exact path='/challenges' component={Challenges} /> */}
-            <Route exact path='/challenges/:challengeId' component={Challenges}/>
+            <Route exact path='/challenges/' component={Challenges}/>
 
             
 

@@ -15,7 +15,7 @@ const Challenges = () => {
     // }
     );
 
-    const challenge = data?.challenge[0]|| {};
+    const challenge = data?.challenges[0]|| {};
     console.log(challenge)
     
 

@@ -23,6 +23,10 @@ const resolvers = {
           pets: async () => {
             const pets = await Pet.find({});
             return pets
+          },
+          challenge: async (parent, { challengeId }) => {
+            const oneChallenge = await Challenge.findOne({ _id: challengeId });
+            return oneChallenge
           }
          
          
