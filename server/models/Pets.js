@@ -19,22 +19,10 @@ const petSchema = new Schema(
           required: true,
           unique: false,
           default: 1
-      }
+      
       
     },
-    experience: {
-      type: Number,
-      required: true,
-      unique: false
-    },
-    level: {
-      type: Number,
-      required: true,
-      unique: false,
-      default: 1
-    }
   },
-  // set this to use virtual below
   {
     toJSON: {
       virtuals: true,
@@ -42,9 +30,5 @@ const petSchema = new Schema(
   }
 );
 
-const Pets = model('Pets', petSchema);
 
-  module.exports = {
-    Pets,
-    petSchema
-  };
+  module.exports = petSchema;
