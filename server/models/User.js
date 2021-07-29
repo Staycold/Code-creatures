@@ -23,6 +23,15 @@ const userSchema = new Schema(
     },
     // set pets to be an array of data that adheres to the petSchema
     pets: [petSchema],
+    inventory: [
+      {
+        apple: {
+          type: Number,
+          required: true,
+          default: 0,
+        },
+      }
+    ]
   },
   // set this to use virtual below
   {
