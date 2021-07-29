@@ -8,7 +8,8 @@ export const ADD_USER = gql`
       user {
         _id
         username
-
+        email
+        password
       }
     }
   }
@@ -29,8 +30,11 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_PET = gql`
-mutation addPet($petData: petStats!){
+mutation addPet($petData: petStats!, $username: username!){
     addPet:(petData:$petData)
+    user {
+      username
+    }
 
 }
 

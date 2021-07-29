@@ -19,10 +19,8 @@ const petSchema = new Schema(
           required: true,
           unique: false,
           default: 1
-      
-      
+      },
     },
-  },
   {
     toJSON: {
       virtuals: true,
@@ -32,3 +30,4 @@ const petSchema = new Schema(
 
 
   module.exports = petSchema;
+

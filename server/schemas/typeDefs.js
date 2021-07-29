@@ -7,7 +7,6 @@ type User {
     username: String
     email: String!
     password: String!
-    pets: [Pets]
 }
 
 type Auth {
@@ -22,8 +21,6 @@ type Pets {
     level: Int!
 
 }
-
-
 
 type Challenge {
     _id: ID
@@ -47,7 +44,7 @@ type Question {
 
 type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!, petName: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
     addPet(petData: PetStats!): User
     addChallenge( challenge: challengeData!): Question
 }
