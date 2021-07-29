@@ -13,17 +13,16 @@ me {
             level
         }
     }
-
+}
 `
 ;
 
 export const GET_CHALLENGE = gql`
 {
 challenge {
-        questionId
+        _id
         question
         correctAnswer
-        experience
         choices{
             answer
         }

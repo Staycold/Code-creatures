@@ -29,5 +29,10 @@ const petSchema = new Schema(
 );
 
 
-  module.exports = petSchema;
+const Pet = model('Pet', petSchema);
+
+  module.exports = {
+    Pet,
+    petSchema
+  };
 
