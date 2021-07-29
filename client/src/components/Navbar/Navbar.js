@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import LoginForm from './LoginForm';
+import SignupForm from './SignupForm';
+import Auth from '../../utils/auth';
 import './navbar.css'
 
 const AppNavBar = () => {
     const [showModal, setShowModal] = useState(false)
     const [modalLogin, setModalLogin] = useState(true)
     // if logged in replace login button with log out button
-
     return (
         <>
             <div className="header-container">
@@ -26,8 +28,13 @@ const AppNavBar = () => {
                         <Link to="/challenges">
                             <li>CHALLENGES</li>
                         </Link>
-                        {/* REFACTOR INTO MODAL */}
-                        <li onClick={() => setShowModal(true)}>LOGIN/SIGNUP</li>
+                        {Auth.loggedIn() ? (
+                            <li onClick={Auth.logout} >LOGOUT</li>
+                        ) : (
+                            <li onClick={() => setShowModal(true)}>LOGIN/SIGNUP</li>
+
+                        )}
+
                     </ul>
                 </nav>
             </div>
@@ -35,39 +42,16 @@ const AppNavBar = () => {
             {showModal ?
                 <div id="myModal" className="modal">
                     <div className="tab-container">
-                            <div className="tab" onClick={() => setModalLogin(true)}>LOGIN</div>
-                            <div className="tab" onClick={() => setModalLogin(false)}>SIGNUP</div>
+                        <div className="tab" onClick={() => setModalLogin(true)}>LOGIN</div>
+                        <div className="tab" onClick={() => setModalLogin(false)}>SIGNUP</div>
                     </div>
                     {modalLogin ?
-                        <form>
-                            <div>
-                                <label> EMAIL </label>
-                                <input />
-                            </div>
-                            <div>
-                                <label> PASSWORD </label>
-                                <input />
-                            </div>
-                            <button>SUBMIT</button>
-                        </form>
+                        <LoginForm />
                         :
-                        <form>
-                            <div>
-                                <label> USERNAME </label>
-                                <input />
-                            </div>
-                            <div>
-                                <label> EMAIL </label>
-                                <input />
-                            </div>
-                            <div>
-                                <label> PASSWORD </label>
-                                <input />
-                            </div>
-                            <button>SUBMIT</button>
-                        </form>
+                        <SignupForm />
+
                     }
-                    <button onClick={() => setShowModal(false)}>X</button>
+                    <button className="exit-btn" onClick={() => setShowModal(false)}>X</button>
                 </div>
                 : null}
 

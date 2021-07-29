@@ -71,7 +71,7 @@
     color:black;
 }
 
-.modal button {
+.modal .exit-btn {
     position: absolute;
     top:0;
     right:0;
