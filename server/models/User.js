@@ -24,9 +24,11 @@ const userSchema = new Schema(
     // set pets to be an array of data that adheres to the petSchema
     pets: [petSchema],
 
+
     dailyAttempt: {
       type: Number
     }
+
   },
   // set this to use virtual below
   {

@@ -1,0 +1,78 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3vh;
+    background-color: #13293d;
+    color: #ffffff;
+    height: 5vh;
+
+}
+
+.brand a{
+    text-decoration: none;
+    color:white;
+}
+
+.navbar {
+    display:flex;
+    margin-right: 1vw;
+    align-items: center;
+}
+
+.navbar ul {
+    float:right;
+}
+
+.navbar li {
+    display:inline;
+    padding: 4vh 1vw 4vh 1vw;
+    color: #b9c6ae;
+    font-weight: bold;
+}
+
+.navbar li:hover {
+    background-color: lightgray;
+    color:black;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.modal {
+    position: absolute;
+    left:25%;
+    height:50vh;
+    width: 50vw;
+    border: 5px solid red;
+    background-color: grey;
+}
+
+.tab-container {
+    width:100%;
+    display:flex;
+    align-items: center;
+    background-color: darkslategray;
+}
+
+
+.tab{
+    text-align: center;
+    width: 50%;
+    display:inline;
+    color: #b9c6ae;
+    font-weight: bold;
+}
+
+.tab:hover {
+    background-color: lightgray;
+    color:black;
+}
+
+.modal button {
+    position: absolute;
+    top:0;
+    right:0;
+}
