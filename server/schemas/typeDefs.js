@@ -4,13 +4,13 @@ const typeDefs = gql`
 
 type User {
     _id: ID
-    username: String!
+    username: String
     email: String!
     password: String!
     pets: [Pets]
 }
 
-type: Auth {
+type Auth {
     token: ID!
     user: User
 }
@@ -22,31 +22,42 @@ type Pets {
     level: Int!
 
 }
-type Challenge {
-    questionId: ID
-    question: String!
-    correctAnswer: String!
-    experience: Int!
-    choices: [Answer]
-}
 
-type: Answer {
-    answer: String!
+
+
+type Challenge {
+    _id: ID
+    question: String
+    correctAnswer: String
+    experience: Int
+    choices: [String]
 }
 
 
 type Query {
     me: User
+    users: [User]
     challenges: [Challenge]
 
 }
 
+type Question {
+    question: Challenge
+}
+
 type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!, petName: String!): Auth
     addPet(petData: PetStats!): User
-    
+    addChallenge( challenge: challengeData!): Question
+}
 
+input challengeData {
+    _id: ID
+    question: String!
+    correctAnswer: String!
+    experience: Int
+    choices: [String]
 }
 
 input PetStats {
@@ -55,8 +66,6 @@ input PetStats {
     experience: Int!
     level: Int!
 }
-
-
 `
 
 module.exports = typeDefs;

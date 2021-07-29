@@ -1,11 +1,26 @@
 const { Schema, model } = require('mongoose');
 
 const petSchema = new Schema(
-  {
-    petName: {
-      type: String,
-      required: true,
-      unique: true,
+
+    {
+      petName: {
+        type: String,
+        required: true,
+        // unique: true,
+      },
+     experience:{
+        type: Number,
+        required: true,
+        unique: false,
+        default: 0
+     },
+      level:{
+          type: Number,
+          required: true,
+          unique: false,
+          default: 1
+      }
+      
     },
     experience: {
       type: Number,
@@ -29,4 +44,7 @@ const petSchema = new Schema(
 
 const Pets = model('Pets', petSchema);
 
-module.exports = Pets;
+  module.exports = {
+    Pets,
+    petSchema
+  };
