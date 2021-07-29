@@ -19,9 +19,8 @@ const petSchema = new Schema(
           required: true,
           unique: false,
           default: 1
-      }
+      },
       
-    },
     experience: {
       type: Number,
       required: true,
@@ -45,6 +44,5 @@ const petSchema = new Schema(
 const Pets = model('Pets', petSchema);
 
   module.exports = {
-    Pets,
     petSchema
   };
