@@ -1,13 +1,13 @@
 const { Schema, model } = require('mongoose');
 
-const answerSchema = require('./Answer')
+// const answerSchema = require('./Answer')
 
 const challengeSchema = new Schema(
     {
         question: {
             type: String,
             required: true,
-            unique: true,
+            // unique: true,
         },
         correctAnswer: {
             type: String,
@@ -15,9 +15,12 @@ const challengeSchema = new Schema(
         },
         experience: {
             type: Number,
-            required: true,
+            required: false,
         },
-        choices: [answerSchema],
+        choices: [{
+                type: String,
+                // required: true,
+            }],
     },
 );
 

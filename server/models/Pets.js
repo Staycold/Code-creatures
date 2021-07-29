@@ -5,12 +5,13 @@ const petSchema = new Schema(
       petName: {
         type: String,
         required: true,
-        unique: true,
+        // unique: true,
       },
      experience:{
         type: Number,
         required: true,
-        unique: false
+        unique: false,
+        default: 0
      },
       level:{
           type: Number,
@@ -30,4 +31,7 @@ const petSchema = new Schema(
 
   const Pets = model('Pets', petSchema);
 
-  module.exports = Pets;
+  module.exports = {
+    Pets,
+    petSchema
+  };
