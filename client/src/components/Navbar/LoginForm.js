@@ -10,6 +10,11 @@ const LoginForm = () => {
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+        const existingToken = Auth.getToken();
+
+        if (existingToken) {
+            localStorage.removeItem('id_token');
+        }
 
         try {
             const { data } = await loginUser({

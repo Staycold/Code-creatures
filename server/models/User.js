@@ -21,6 +21,11 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    coins: {
+      type: Number,
+      required: true,
+      default: 50,
+    },
     // set pets to be an array of data that adheres to the petSchema
     pets: [petSchema],
 

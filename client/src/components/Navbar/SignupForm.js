@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
-import auth from '../../utils/auth';
+import Auth from '../../utils/auth';
 
 
 const SignupForm = () => {
@@ -14,11 +14,17 @@ const SignupForm = () => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
+        const existingToken = Auth.getToken();
+
+        if (existingToken) {
+            localStorage.removeItem('id_token');
+        }
+
         try {
             const { data } = await addUser ({
                 variables: { ...userFormData }
             })
-            auth.login(data.addUser.token)
+            Auth.login(data.addUser.token)
         } catch (err) {
             console.error(err)
         }
