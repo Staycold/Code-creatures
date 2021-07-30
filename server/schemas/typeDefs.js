@@ -7,6 +7,7 @@ type User {
     username: String
     email: String!
     password: String!
+    pets:[Pet]
 }
 
 type Auth {
@@ -14,9 +15,10 @@ type Auth {
     user: User
 }
 
-type Pets {
+type Pet {
     petId: ID
     petName: String!
+    petType: String!
     experience: Int
     level: Int!
 
@@ -35,7 +37,7 @@ type Query {
     me: User
     users: [User]
     challenges: [Challenge]
-    pets:[Pets]
+    pets:[Pet]
     challenge(challengeId: ID!): Challenge
 
 }
@@ -60,8 +62,8 @@ input challengeData {
 }
 
 input PetStats {
-    petId:ID!
     petName: String!
+    petType: String!
     experience: Int!
     level: Int!
 }

@@ -30,13 +30,13 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_PET = gql`
-mutation addPet($petData: petStats!, $username: username!){
-    addPet:(petData:$petData)
-    user {
-      username
+mutation addPet($petData: PetStats!){
+  addPet(petData:$petData) {
+    username
+    pets {
+      petName
     }
-
+  }
 }
-
 `
 ;

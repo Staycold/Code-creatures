@@ -54,18 +54,26 @@ const resolvers = {
             return { token, user };
         },
 
-        addPet: async (parent, { petName }) => {
+        addPet: async (parent, { petData }, context) => {
             //create the new pet
             //update the user with the new created pet
-
-            const pet = await Pet.create({ petName });
-            const token = signToken(user);
-            return { pet }
+            console.log(context)
+            if (!context.user) {
+              throw new AuthenticationError('You need to be logged to save books');
+          };
+          const user = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $addToSet: { pets: petData } },
+            { new: true }
+            )
+            // const pet = await Pet.create({ petName });
+            // const token = signToken(user);
+            // return { pet }
+            return user
             },
         addChallenge: async (parent, args) =>{
             const question = await Challenge.create(args.challenge)
             return { question }
-
         }
     }
 }
