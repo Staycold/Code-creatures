@@ -61,6 +61,7 @@ type Mutation {
     addChallenge( challenge: challengeData!): Question
     grantExp( exp: PetStats! ) :User
     mutateInv( invData: InventoryData! ) : User
+    addExp( exp: PetStats! ) :User
 }
 
 input InventoryData {

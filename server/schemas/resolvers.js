@@ -90,7 +90,13 @@ const resolvers = {
         addChallenge: async (parent, args) =>{
             const question = await Challenge.create(args.challenge)
             return { question }
-        }
+        },
+        // addExp: async ( parent, args, context) => {
+        //   const expGain = await User.findByIdAndUpdate(
+        //     { _id: context.user._id},
+        //     {$splice}
+        //     )
+        // }
     }
 }
 
