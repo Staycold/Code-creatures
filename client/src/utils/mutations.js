@@ -36,6 +36,7 @@ mutation addPet($petData: PetStats!){
     pets {
       petName
       petType
+
     }
   }
 }
