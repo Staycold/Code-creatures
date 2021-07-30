@@ -53,4 +53,19 @@ mutation addChallenge($challenge: challengeData!){
   }
 }
 `
+
+export const EDIT_INV = gql`
+mutation mutateInv ($invData: InventoryData!) {
+  mutateInv(invData:$invData) {
+    username
+    inventory{
+      coins,
+      food1,
+      food2,
+      food3
+    }
+  }
+}
+`
+
 ;

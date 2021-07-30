@@ -6,7 +6,7 @@ type User {
     _id: ID
     username: String
     email: String!
-    coins: Int
+    inventory:Inventory
     password: String!
     pets:[Pet]
 }
@@ -22,7 +22,14 @@ type Pet {
     petType: String!
     experience: Int
     level: Int!
+}
 
+type Inventory {
+    inventoryId: ID
+    coins: Int
+    food1: Int
+    food2: Int
+    food3: Int
 }
 
 type Challenge {
@@ -49,10 +56,18 @@ type Question {
 
 type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!, inventory: InventoryData): Auth
     addPet(petData: PetStats!): User
     addChallenge( challenge: challengeData!): Question
+    grantExp( exp: PetStats! ) :User
+    mutateInv( invData: InventoryData! ) : User
     addExp( exp: PetStats! ) :User
+}
+
+input InventoryData {
+    food1: Int
+    food2: Int
+    food3: Int
 }
 
 input challengeData {
