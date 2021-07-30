@@ -29,3 +29,14 @@ challenges{
 `
 ;
 
+export const GET_SINGLE_CHALLENGE = gql`
+query getSingleChallenge($challengeId: ID!) {
+  challenge(challengeId: $challengeId) {
+    _id
+    question
+    correctAnswer
+    choices
+  }
+}
+`;
+

@@ -1,21 +1,21 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
 import {useQuery} from '@apollo/client'
-import { GET_CHALLENGE } from '../../utils/queries';
+import { GET_SINGLE_CHALLENGE } from '../../utils/queries';
 
 
 const Challenges = () => {
 
-    const { challengeId } = useParams();
+    const { questionId } = useParams();
 
 
-    const { loading, data } = useQuery(GET_CHALLENGE
-        // {
-        // variables: { challengeId: challengeId},
-    // }
+    const { loading, data } = useQuery(GET_SINGLE_CHALLENGE,
+        {
+        variables: { challengeId: questionId},
+    }
     );
 
-    const challenge = data?.challenges[0]|| {};
+    const challenge = data?.challenge || {};
     console.log(challenge)
     
 
