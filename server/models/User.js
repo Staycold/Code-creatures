@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 
 // import schema from Pet.js
 const {petSchema} = require('./Pet');
+const {inventorySchema} = require('./Inventory');
 
 const userSchema = new Schema(
   {
@@ -21,11 +22,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    coins: {
-      type: Number,
-      required: true,
-      default: 50,
-    },
+
+    inventory: inventorySchema,
+
     // set pets to be an array of data that adheres to the petSchema
     pets: [petSchema],
 

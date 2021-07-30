@@ -34,9 +34,25 @@ const resolvers = {
 
     Mutation: {
         addUser: async (parent, { username, email, password }) => {
-        const user = await User.create({ username, email, password});
+        const inventory = {food1: 0, food2: 0, food3: 0}
+        const user = await User.create({ username, email, password, inventory});
         const token = signToken(user);
         return { token, user }
+        },
+
+        mutateInv: async (parent, { invData }, context) => {
+          if (!context.user) {
+            throw new AuthenticationError('You need to be logged');
+          }
+          console.log(invData)
+
+          const user = await User.findOneAndUpdate(
+            { _id: context.user._id},
+            {$set: { inventory : invData }},
+            {new:true}
+          )
+
+          return user;
         },
 
         login: async (parent, { email, password }) => {
@@ -57,7 +73,7 @@ const resolvers = {
         addPet: async (parent, { petData }, context) => {
             //create the new pet
             //update the user with the new created pet
-            console.log(context)
+            // console.log(context)
             if (!context.user) {
               throw new AuthenticationError('You need to be logged to save books');
           };
