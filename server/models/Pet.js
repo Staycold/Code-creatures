@@ -12,10 +12,6 @@ const petSchema = new Schema(
         type: String,
         required: true,
       },
-      petSprite: {
-        type: String,
-        required: true,
-      },
      experience:{
         type: Number,
         required: true,

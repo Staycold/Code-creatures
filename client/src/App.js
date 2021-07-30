@@ -14,6 +14,7 @@ import Challenges from './pages/challenges/challenges'
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/footer';
 import ChallengeHub from './pages/challengeHub/challengeHub';
+import Store from './pages/store/store'
 
 // // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -53,7 +54,7 @@ function App() {
             <Route exact path='/profile' component={Profile} />
             <Route exact path='/challenges' component={ChallengeHub} />
             <Route exact path='/challenges/:questionId' component={Challenges}/>
-            
+            <Route exact path='/store' component={Store} />
             
 
             {/* <Route exact path='/login' component={Login} /> */}
