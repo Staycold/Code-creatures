@@ -19,6 +19,7 @@ type Pet {
     petId: ID
     petName: String!
     petType: String!
+    petSprite: String!
     experience: Int
     level: Int!
 
@@ -64,6 +65,7 @@ input challengeData {
 input PetStats {
     petName: String!
     petType: String!
+    petSprite: String!
     experience: Int!
     level: Int!
 }

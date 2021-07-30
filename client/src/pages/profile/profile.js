@@ -33,6 +33,8 @@ const Profile = () => {
         return (userData.pets.length === 0)
     }
 
+    // const generateSprite = () => 
+
     return (
         <main>
             <div>

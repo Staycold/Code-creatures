@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Auth from '../../utils/auth'
 import { useMutation } from '@apollo/client';
 import { ADD_PET } from '../../utils/mutations';
+import imgs from '../../images/index.js';
 
 const NewPet = () => {
     const [showPetModal, setShowPetModal] = useState(false);
@@ -60,9 +61,11 @@ const NewPet = () => {
                 CHOOSE A PET
             </div>
             <div onClick={() => choosePet('1a')}>
+                <img src={imgs.whitePet1} />
                 PET 1
             </div>
             <div onClick={() => choosePet('2a')}>
+                <img src={imgs.whitePet2} />
                 PET 2
             </div>
             <div onClick={() => choosePet('3a')}>
