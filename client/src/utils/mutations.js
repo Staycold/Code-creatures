@@ -40,3 +40,16 @@ mutation addPet($petData: PetStats!){
 }
 `
 ;
+
+export const ADD_CHALLENGE = gql`
+mutation addChallenge($challenge: challengeData!){
+  addChallenge(challenge:$challenge){
+    question {
+      question
+      correctAnswer
+      choices
+    }
+  }
+}
+`
+;

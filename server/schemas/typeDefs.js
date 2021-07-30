@@ -51,6 +51,7 @@ type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     addPet(petData: PetStats!): User
     addChallenge( challenge: challengeData!): Question
+    grantExp( exp: PetStats! ) :User
 }
 
 input challengeData {
