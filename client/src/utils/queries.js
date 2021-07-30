@@ -10,6 +10,7 @@ query me{
         pets{
             petId
             petName
+            petType
             experience
             level
         }
