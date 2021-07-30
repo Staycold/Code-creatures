@@ -8,6 +8,10 @@ const petSchema = new Schema(
         required: true,
         // unique: true,
       },
+      petType: {
+        type: String,
+        required: true,
+      },
      experience:{
         type: Number,
         required: true,

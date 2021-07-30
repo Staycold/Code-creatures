@@ -4,7 +4,7 @@ import { LOGIN_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 const LoginForm = () => {
-    const [userFormData, setUserFormData] = useState({ email: "test1@email.com", password: "pass1234" })
+    const [userFormData, setUserFormData] = useState({ email: "", password: "" })
 
     const [loginUser] = useMutation(LOGIN_USER)
 
@@ -42,6 +42,7 @@ const LoginForm = () => {
             <div>
                 <label> PASSWORD </label>
                 <input
+                    type="password"
                     name="password"
                     value={userFormData.password}
                     onChange={handleInputChange} />
