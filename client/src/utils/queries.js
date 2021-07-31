@@ -6,7 +6,12 @@ query me{
         _id
         username
         email
-        coins
+        inventory{
+          coins
+          food1
+          food2
+          food3
+        }
         pets{
             petId
             petName
