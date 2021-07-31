@@ -13,12 +13,12 @@ const Profile = () => {
     let petData
     console.log(imgs.whitePet1)
 
-    const generateSprite = (sprite) => {
-        if (petData.petType === "a2") {
-            setSprite(userData.petType)
-            console.log(sprite)
-        }
-    }
+    // const generateSprite = (sprite) => {
+    //     if (petData.petType === "a2") {
+    //         setSprite(userData.petType)
+    //         console.log(sprite)
+    //     }
+    // }
    
 
     // const submitNewPet = (event) => {
@@ -34,12 +34,12 @@ const Profile = () => {
     //     console.log(petData)
     // }
 
-    if (loading) {
-        return <h2>LOADING...</h2>;
-    } else {
-        petData = userData.pets[0]
-        console.log(petData)
-    }
+    // if (loading) {
+    //     return <h2>LOADING...</h2>;
+    // } else {
+    //     petData = userData.pets[0]
+    //     console.log(petData)
+    // }
 
     const hasNoPet = () => {
         return (userData.pets.length === 0)
