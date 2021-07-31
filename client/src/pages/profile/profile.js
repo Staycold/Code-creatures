@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../../utils/queries';
 import auth from '../../utils/auth';
@@ -9,17 +9,29 @@ import imgs from '../../images/index.js'
 const Profile = () => {
     const { loading, data } = useQuery(QUERY_USER);
     const userData = data?.me || {};
-    const [ sprite, setSprite ] = useState ('a1')
+    const [ sprite, setSprite ] = useState ('cat')
     let petData
-    console.log(imgs.whitePet1)
+   // console.log(userData.pets[0].petType)
 
-    // const generateSprite = (sprite) => {
-    //     if (petData.petType === "a2") {
-    //         setSprite(userData.petType)
-    //         console.log(sprite)
-    //     }
-    // }
-   
+    useEffect(() => {
+        // if (!userData.pets) {
+        //     hasNoPet()
+        // }
+        if (userData.pets[0].petType === 'fox') {
+         //   setSprite(userData.pets[0].petType)
+         setSprite('fox')
+        }
+        if (userData.pets[0].petType === 'rabbit') {
+           // setSprite(userData.pets[0].petType)
+           setSprite('rabbit')
+        }
+       if (userData.pets[0].petType === 'cat') {
+           // setSprite(userData.pets[0].petType)
+           setSprite('cat')
+    }
+    console.log(sprite)
+    return sprite
+})
 
     // const submitNewPet = (event) => {
     //     event.preventDefault();
@@ -34,6 +46,7 @@ const Profile = () => {
     //     console.log(petData)
     // }
 
+
     // if (loading) {
     //     return <h2>LOADING...</h2>;
     // } else {
@@ -41,10 +54,19 @@ const Profile = () => {
     //     console.log(petData)
     // }
 
+    if (loading) {
+        return <h2>LOADING...</h2>;
+    } else {
+        petData = userData.pets[0]
+        console.log(petData)
+        console.log(userData.pets[0].petType)
+    }
+
+
+ 
     const hasNoPet = () => {
         return (userData.pets.length === 0)
     }
-
 
 
     return (

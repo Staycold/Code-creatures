@@ -1,9 +1,11 @@
-import a1 from './WhitePet1_Png.png'
-import a2 from './WhitePet2_Png.png'
+import cat from './Cat_Down.png'
+import fox from './Fox_Down.png'
+import rabbit from './Rabbit_Down.png'
 
 const imgs = {
-    a1,
-    a2,
+    cat,
+    fox,
+    rabbit
 }
 
 export default imgs
