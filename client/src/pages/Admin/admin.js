@@ -5,14 +5,38 @@ import { ADD_CHALLENGE } from '../../utils/mutations';
 
 const AddChallenge = () => {
 
-    const [challengeData, setChallengeData ] = useState({question:'', correctAnswer:'', choices:[]})
+    const [challengeData, setChallengeData ] = useState({question:'', correctAnswer:''})
+    const [choice1Data, setChoice1Data ] = useState('')
+    const [choice2Data, setChoice2Data ] = useState('')
+    const [choice3Data, setChoice3Data ] = useState('')
 
     const [addQuestion] = useMutation(ADD_CHALLENGE)
 
     
     const handleInputChange = (event) => {
         const { name, value } = event.target;
-        setChallengeData({ ...challengeData, [name]: [value] });
+        switch(name){
+          case "question":
+            case  "correctAnswer":{
+              setChallengeData({...challengeData, [name]:value});
+              break;
+          }
+          case "choice1": {
+              setChoice1Data(value);
+              break;
+          }
+          case "choice2": {
+              setChoice2Data(value);
+              break;
+          }
+          case "choice3": {
+              setChoice3Data(value);
+              break;
+          }
+          default:{
+          break
+        }
+      }
       };
 
 
@@ -26,10 +50,12 @@ const AddChallenge = () => {
           event.preventDefault();
           event.stopPropagation();
         }
-    
+
+        const choiceArr = [choice1Data, choice2Data, choice3Data]
+        console.log({ ...challengeData, choices: choiceArr })
         try {
        const { data } = await addQuestion ({
-         variables:{ ...challengeData }
+         variables:{challenge:{ ...challengeData, choices: choiceArr }}
        })
     
       
@@ -44,11 +70,14 @@ const AddChallenge = () => {
             correctAnswer:'',
             choices:[],
         });
-        
+        setChoice1Data('')
+        setChoice2Data('')
+        setChoice3Data('')
        
       };
 
       console.log( challengeData)
+     
       return (
         <>
           
@@ -86,9 +115,9 @@ const AddChallenge = () => {
               <input
                 type='text'
                 placeholder='Your choices'
-                name='choices'
+                name='choice1'
                 onChange={(event) => handleInputChange(event)}
-                value={challengeData.choices}
+                value={choice1Data}
                 required
               />
               
@@ -99,9 +128,9 @@ const AddChallenge = () => {
               <input
                 type='text'
                 placeholder='Your choices'
-                name='choices'
+                name='choice2'
                 onChange={(event) => handleInputChange(event)}
-                value={challengeData.choices}
+                value={choice2Data}
                 required
               />
               
@@ -112,9 +141,9 @@ const AddChallenge = () => {
               <input
                 type='text'
                 placeholder='Your choices'
-                name='choices'
+                name='choice3'
                 onChange={(event) => handleInputChange(event)}
-                value={challengeData.choices}
+                value={choice3Data}
                 required
               />
               

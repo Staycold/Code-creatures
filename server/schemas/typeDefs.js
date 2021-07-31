@@ -74,7 +74,6 @@ input challengeData {
     _id: ID
     question: String!
     correctAnswer: String!
-    experience: Int
     choices: [String]
 }
 
