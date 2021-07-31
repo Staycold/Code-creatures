@@ -77,9 +77,10 @@ const resolvers = {
             if (!context.user) {
               throw new AuthenticationError('You need to be logged to save books');
           };
+          const pet = await Pet.create( petData )
           const user = await User.findOneAndUpdate(
             { _id: context.user._id },
-            { $addToSet: { pets: petData } },
+            { $addToSet: { pets: pet } },
             { new: true }
             )
             // const pet = await Pet.create({ petName });
@@ -91,12 +92,12 @@ const resolvers = {
             const question = await Challenge.create(args.challenge)
             return { question }
         },
-        // addExp: async ( parent, args, context) => {
-        //   const expGain = await User.findByIdAndUpdate(
-        //     { _id: context.user._id},
-        //     {$splice}
-        //     )
-        // }
+        addExp: async ( parent, args, context) => {
+          const expGain = await User.findByIdAndUpdate(
+            { _id: context.user._id},
+            {$splice}
+            )
+        }
     }
 }
 

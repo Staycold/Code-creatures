@@ -46,6 +46,14 @@ const Profile = () => {
     //     console.log(petData)
     // }
 
+
+    // if (loading) {
+    //     return <h2>LOADING...</h2>;
+    // } else {
+    //     petData = userData.pets[0]
+    //     console.log(petData)
+    // }
+
     if (loading) {
         return <h2>LOADING...</h2>;
     } else {
@@ -53,6 +61,7 @@ const Profile = () => {
         console.log(petData)
         console.log(userData.pets[0].petType)
     }
+
 
  
     const hasNoPet = () => {
