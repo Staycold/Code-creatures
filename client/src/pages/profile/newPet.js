@@ -60,18 +60,19 @@ const NewPet = () => {
             <div>
                 CHOOSE A PET
             </div>
-            <div onClick={() => choosePet('1a')}>
-                <img src={imgs.whitePet1} />
-                PET 1
+            <div onClick={() => choosePet('cat')}>
+                <img src={imgs.cat} alt='cat pet' />
+                Cat
             </div>
-            <div onClick={() => choosePet('2a')}>
-                <img src={imgs.whitePet2} />
-                PET 2
+            <div onClick={() => choosePet('fox')}>
+                <img src={imgs.fox} alt='fox pet' />
+                Fox
             </div>
-            <div onClick={() => choosePet('3a')}>
-                PET 3
+            <div onClick={() => choosePet('rabbit')}>
+                <img src={imgs.rabbit} alt='rabbit pet' />   
+                Rabbit
             </div>
-            <p>{newPetData.petType}</p>
+            <p>{newPetData.rabbit}</p>
             {showPetModal ? (
                 <form>
                     <button onClick={() => exitModal()}>X</button>
