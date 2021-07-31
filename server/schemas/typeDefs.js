@@ -65,6 +65,7 @@ type Mutation {
 }
 
 input InventoryData {
+    coins: Int
     food1: Int
     food2: Int
     food3: Int
