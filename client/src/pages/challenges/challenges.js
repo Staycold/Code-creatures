@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client'
 import { GET_SINGLE_CHALLENGE } from '../../utils/queries';
@@ -10,6 +10,8 @@ const Challenges = () => {
 
     const { questionId } = useParams();
 
+    const [answers, setAnswers]= useState([]);
+
     const [response, setResponse] = useState();
 
     const [nextQuestion,setQuestion]=useState(false);
@@ -18,6 +20,30 @@ const Challenges = () => {
     
     const { loading, data } = useQuery(GET_SINGLE_CHALLENGE,
         {
+            onCompleted:( data ) => {
+                function shuffle(array) {
+                    var currentIndex = array.length,  randomIndex;
+                  
+                    // While there remain elements to shuffle...
+                    while (0 !== currentIndex) {
+                  
+                      // Pick a remaining element...
+                      randomIndex = Math.floor(Math.random() * currentIndex);
+                      currentIndex--;
+                  
+                      // And swap it with the current element.
+                      [array[currentIndex], array[randomIndex]] = [
+                        array[randomIndex], array[currentIndex]];
+                    }
+                  
+                    return array;
+                  }
+
+                let originalChoice = [...data?.challenge.choices, data?.challenge.correctAnswer]
+                let randoChoice = shuffle(originalChoice)
+                setAnswers(randoChoice)
+               
+            },
             variables: { challengeId: questionId },
         }
     );
@@ -26,9 +52,11 @@ const Challenges = () => {
     console.log(challenge)
 
 
+
     if (loading) {
         return <div> Loading...</div>
     }
+
 
     
 
@@ -62,10 +90,10 @@ const Challenges = () => {
                 </div>
                 {!answered ?(
                 <h5>
-                    <div onClick={() => setResponse(challenge.choices[0])}>{challenge.choices[0]}  </div>
-                    <div onClick={() => setResponse(challenge.choices[1])}>{challenge.choices[1]} </div>
-                    <div onClick={() => setResponse(challenge.choices[2])}>{challenge.choices[2]}</div>
-                    <div onClick={() => setResponse(challenge.correctAnswer)}>{challenge.correctAnswer} </div>
+                    {answers.map((choice) => {
+                     return  <div onClick={() => setResponse(choice)}>{choice}  </div>  
+                    })}
+                                    
                     <button type='submit' onClick={(handleSelection)}>Final Answer</button>
                     </h5>
                         ):(<div>
