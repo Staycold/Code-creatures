@@ -13,53 +13,30 @@ const Profile = () => {
     let petData
    // console.log(userData.pets[0].petType)
 
-    useEffect(() => {
-        // if (!userData.pets) {
-        //     hasNoPet()
-        // }
-        if (userData.pets[0].petType === 'fox') {
-         //   setSprite(userData.pets[0].petType)
-         setSprite('fox')
-        }
-        if (userData.pets[0].petType === 'rabbit') {
-           // setSprite(userData.pets[0].petType)
-           setSprite('rabbit')
-        }
-       if (userData.pets[0].petType === 'cat') {
-           // setSprite(userData.pets[0].petType)
-           setSprite('cat')
+   useEffect(() => {
+    // if (userData.pets.length === 0) {
+    //    return
+    // }
+    if (userData.pets[0].petType === 'fox') {
+     //   setSprite(userData.pets[0].petType)
+     setSprite('fox')
     }
-    console.log(sprite)
-    return sprite
+    if (userData.pets[0].petType === 'rabbit') {
+       // setSprite(userData.pets[0].petType)
+       setSprite('rabbit')
+    }
+   if (userData.pets[0].petType === 'cat') {
+       // setSprite(userData.pets[0].petType)
+       setSprite('cat')
+}
 })
-
-    // const submitNewPet = (event) => {
-    //     event.preventDefault();
-    //     const petData = {
-    //         name: "this is where name will go",
-    //         experience: 0,
-    //         level: 1,
-    //         happiness: 0,
-    //         sprite: event.target.dataset.sprite,
-    //     }
-    //     // MUTATION TO ADD PET
-    //     console.log(petData)
-    // }
-
-
-    // if (loading) {
-    //     return <h2>LOADING...</h2>;
-    // } else {
-    //     petData = userData.pets[0]
-    //     console.log(petData)
-    // }
 
     if (loading) {
         return <h2>LOADING...</h2>;
     } else {
         petData = userData.pets[0]
         console.log(petData)
-        console.log(userData.pets[0].petType)
+      //  console.log(userData.pets[0].petType)
     }
 
 

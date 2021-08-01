@@ -1,0 +1,33 @@
+
+body {
+    background-image: url('../../images/Grass_Texture.png');
+  }
+  
+  .card-homepage {
+    margin-top: 100px; 
+    margin-left: 50px;
+    max-width: 50%;
+  }
+  
+  .catImg {
+    float: right;
+    margin-right: 50px;
+    margin-bottom: 200px;
+  }
+  .foxImg {
+    float: right;
+    margin-right: 100px;
+    margin-bottom: 100px;
+  }
+  .rabbitImg {
+    float: right;
+    margin-right: 75px;
+    margin-bottom: 100px;
+  }
+  
+  /* .coldFooter {
+    position: sticky;
+    height: 100px;
+    background-color: rgb(24, 172, 24);
+    bottom: 0;
+  } */
