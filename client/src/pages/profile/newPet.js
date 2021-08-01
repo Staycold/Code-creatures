@@ -50,7 +50,7 @@ const NewPet = () => {
                 }
             })
             console.log(data)
-            // document.window.replace('/profile');
+            window.location.replace('/profile');
         } catch (err) {
             console.error(err)
         }
