@@ -60,7 +60,7 @@ type Mutation {
     addPet(petData: PetStats!): User
     addChallenge( challenge: challengeData!): Question
     mutateInv( invData: InventoryData! ) : User
-    addExp(petExp: petExp ) : User
+    addExp(petExp: Int! ) : User
 }
 
 input InventoryData {
@@ -85,7 +85,6 @@ input PetStats {
 }
 
 input petExp {
-    _id: ID
     exp: Int!
 
 

@@ -92,10 +92,10 @@ const resolvers = {
             const question = await Challenge.create(args.challenge)
             return { question }
         },
-        addExp: async ( parent, { petExp }, context) => {
+        addExp: async ( parent,  args , context) => {
           const expGain = await User.findByIdAndUpdate(
-            {_id: petExp._id},
-            {$inc : { 'pets.0.experience' : petExp.exp}},
+            {_id: context.user._id},
+            {$inc : { 'pets.0.experience' : args.petExp}},
             { new: true }
             )
             return expGain

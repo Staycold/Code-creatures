@@ -1,0 +1,12 @@
+
+.choices{
+    height: 200px;
+    width: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    font-size: 3rem;
+    background-image: linear-gradient(#BDE0FE, #A2D2FF);
+    color: #FFAFCC ;
+    align-items: center;
+}

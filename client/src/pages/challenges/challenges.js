@@ -4,6 +4,8 @@ import { useQuery, useMutation } from '@apollo/client'
 import { GET_SINGLE_CHALLENGE } from '../../utils/queries';
 import { ADD_EXP } from '../../utils/mutations';
 
+import './challenge.css'
+
 
 
 
@@ -63,7 +65,7 @@ const Challenges = () => {
 
     
 
-    const handleSelection = (event) => {
+    const handleSelection = async (event) => {
         event.preventDefault();
 
         console.log(response)
@@ -72,8 +74,17 @@ const Challenges = () => {
 
         if (response === challenge.correctAnswer){
     
-    addExp(10)
+    
     setQuestion(true)
+
+    try {
+        const { data } = await addExp({
+            variables: { petExp:10 }
+        })
+        console.log(data)
+    } catch (err) {
+        console.error(err)
+    }
         }
         
         }
@@ -95,7 +106,7 @@ const Challenges = () => {
                 {!answered ?(
                 <h5>
                     {answers.map((choice) => {
-                     return  <div onClick={() => setResponse(choice)}>{choice}  </div>  
+                     return  <div className='choices' onClick={() => setResponse(choice)}>{choice}  </div>  
                     })}
                                     
                     <button type='submit' onClick={(handleSelection)}>Final Answer</button>
