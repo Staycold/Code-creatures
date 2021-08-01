@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client'
+import { useQuery, useMutation } from '@apollo/client'
 import { GET_SINGLE_CHALLENGE } from '../../utils/queries';
+import { ADD_EXP } from '../../utils/mutations';
 
 
 
@@ -17,6 +18,8 @@ const Challenges = () => {
     const [nextQuestion,setQuestion]=useState(false);
 
     const [answered, setAnswered] = useState(false)
+
+    const [addExp, {error}]= useMutation(ADD_EXP)
     
     const { loading, data } = useQuery(GET_SINGLE_CHALLENGE,
         {
@@ -68,7 +71,8 @@ const Challenges = () => {
         setAnswered(true)
 
         if (response === challenge.correctAnswer){
-
+    
+    addExp(10)
     setQuestion(true)
         }
         

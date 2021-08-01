@@ -74,12 +74,12 @@ const resolvers = {
             //create the new pet
             //update the user with the new created pet
             // console.log(context)
-            if (!context.user) {
-              throw new AuthenticationError('You need to be logged to save books');
-          };
+          //   if (!context.user) {
+          //     throw new AuthenticationError('You need to be logged ');
+          // };
           const pet = await Pet.create( petData )
           const user = await User.findOneAndUpdate(
-            { _id: context.user._id },
+            { _id:conxext.user._id},
             { $addToSet: { pets: pet } },
             { new: true }
             )
@@ -92,11 +92,13 @@ const resolvers = {
             const question = await Challenge.create(args.challenge)
             return { question }
         },
-        addExp: async ( parent, args, context) => {
+        addExp: async ( parent, { petExp }, context) => {
           const expGain = await User.findByIdAndUpdate(
-            { _id: context.user._id},
-            {$splice}
+            {_id: petExp._id},
+            {$inc : { 'pets.0.experience' : petExp.exp}},
+            { new: true }
             )
+            return expGain
         }
     }
 }
