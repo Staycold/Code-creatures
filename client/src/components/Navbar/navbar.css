@@ -41,13 +41,14 @@
     color: inherit;
 }
 
-.modal {
+.loginModal {
     position: absolute;
     left:25%;
     height:50vh;
     width: 50vw;
     border: 5px solid red;
     background-color: grey;
+    z-index: 1;
 }
 
 .tab-container {

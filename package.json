@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Staycold/Code-creatures#readme",
   "dependencies": {
+    "bootstrap": "^5.0.2",
     "concurrently": "^5.1.0"
   }
 }

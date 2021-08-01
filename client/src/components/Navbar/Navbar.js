@@ -40,7 +40,7 @@ const AppNavBar = () => {
             </div>
 
             {showModal ?
-                <div id="myModal" className="modal">
+                <div id="myModal" className="loginModal">
                     <div className="tab-container">
                         <div className="tab" onClick={() => setModalLogin(true)}>LOGIN</div>
                         <div className="tab" onClick={() => setModalLogin(false)}>SIGNUP</div>

@@ -4,7 +4,7 @@ const Footer = () => {
 
     return (
         <main>
-            <div>
+            <div className="coldFooter">
                 Cold Triumvirate 🥶🥶🥶
             </div>
         </main>
