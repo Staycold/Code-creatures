@@ -1,33 +1,67 @@
-
 body {
-    background-image: url('../../images/Grass_Texture.png');
+    background-image: url('../../images/bg-sky.png');
   }
-  
+
   .card-homepage {
     margin-top: 100px; 
     margin-left: 50px;
     max-width: 50%;
   }
   
-  .catImg {
+.petContainer {
+    background-image: url('../../images/Grass_Texture.png');
+    min-height: 300px;
+    bottom: 0;
+}
+
+  #catImg {
     float: right;
     margin-right: 50px;
-    margin-bottom: 200px;
   }
-  .foxImg {
+  #foxImg {
     float: right;
     margin-right: 100px;
-    margin-bottom: 100px;
   }
-  .rabbitImg {
+  #rabbitImg {
     float: right;
     margin-right: 75px;
-    margin-bottom: 100px;
   }
   
-  /* .coldFooter {
-    position: sticky;
-    height: 100px;
-    background-color: rgb(24, 172, 24);
+    #cloud1 {
+        float: right;
+        margin-right: 75px;
+        margin-top: 60px;
+        width: 125px;
+        height: 92px;
+    }
+    
+    #cloud3 {
+        float: right;
+        margin-right: 125px;
+        margin-top: 30px;
+        width: 125px;
+        height: 92px;
+    }
+
+    .card-homepage {
+        max-height: 300px;
+        max-width: 45%;
+        border: 2px solid black;
+        border-radius: 5px;
+        background-color: cornsilk;
+        padding: 15px
+    }
+
+
+  /* .homePageTop{
+    background-image: url('../../images/Grass_Texture.png');
+    max-height: 50%;
+    max-width: 100%;
     bottom: 0;
+    position: absolute
   } */
+  
+
+  
+
+

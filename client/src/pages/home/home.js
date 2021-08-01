@@ -6,20 +6,23 @@ const Home = () => {
 
     return (
         <main>
-            <div>
-            <div className="card card-homepage">
-  <div className="card-body">
-    <h5 className="card-title">Welcome to Code Creatures!</h5>
-    <h6 className="card-subtitle mb-2 text-muted">Learn to code with your favourite furry friends!</h6>
-    <p className="card-text">Code Creatures is a virtual pet site that teaches you to code while caring for one of three furry friends.</p>
-    <p className="card-text">Win coins by completing Code Challenges every day, then use your coins to buy your pet some treats!</p>
-    <p className="card-text">Join today to start learning!</p>
-  </div>
-</div>
-        <img className="catImg" src={imgs.cat} alt="cat-pet" />
-        <img className="foxImg" src={imgs.fox} alt="fox-pet" />
-        <img className="rabbitImg" src={imgs.rabbit} alt="rabbit-pet" />
-            </div>
+    <div>
+    <img id="cloud1" src={imgs.cloud1} alt="cloud sprite 1" />
+    <img id="cloud3" src={imgs.cloud3} alt="cloud sprite 2" /> 
+    <div className="card-homepage">
+    <h2>Welcome to Code Creatures!</h2>
+    <h4>Learn to code with your favourite furry friends!</h4>
+    <p>Code Creatures is a virtual pet site that teaches you to code while caring for one of three furry friends.</p>
+    <p>Win coins by completing Code Challenges every day, then use your coins to buy your pet some treats!</p>
+    <p>Join today to start learning!</p>
+    </div>
+
+    <div className="petContainer">
+        <img id="catImg" src={imgs.cat} alt="cat-pet" />
+        <img id="foxImg" src={imgs.fox} alt="fox-pet" />
+        <img id="rabbitImg" src={imgs.rabbit} alt="rabbit-pet" />
+    </div>
+    </div>
         </main>
     );
 };
