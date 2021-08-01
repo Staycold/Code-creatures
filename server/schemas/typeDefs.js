@@ -59,9 +59,8 @@ type Mutation {
     addUser(username: String!, email: String!, password: String!, inventory: InventoryData): Auth
     addPet(petData: PetStats!): User
     addChallenge( challenge: challengeData!): Question
-    grantExp( exp: PetStats! ) :User
     mutateInv( invData: InventoryData! ) : User
-    addExp( exp: PetStats! ) :User
+    addExp(petExp: petExp ) : User
 }
 
 input InventoryData {
@@ -84,6 +83,19 @@ input PetStats {
     experience: Int!
     level: Int!
 }
+
+input petExp {
+    _id: ID
+    exp: Int!
+
+
+}
+
+
+
+
+
+
 `
 
 module.exports = typeDefs;

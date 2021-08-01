@@ -67,5 +67,16 @@ mutation mutateInv ($invData: InventoryData!) {
   }
 }
 `
-
+export const ADD_EXP = gql`
+mutation addExp($pets: petExp!){
+  addExp(petExp:$pets){
+    _id
+    username
+    pets{
+    petName
+    experience
+    }
+  }
+}
+`
 ;
