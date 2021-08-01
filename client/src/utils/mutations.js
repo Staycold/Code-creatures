@@ -68,9 +68,8 @@ mutation mutateInv ($invData: InventoryData!) {
 }
 `
 export const ADD_EXP = gql`
-mutation addExp($pets: petExp!){
-  addExp(petExp:$pets){
-    _id
+mutation addExp($petExp:Int! ){
+  addExp(petExp:$petExp){
     username
     pets{
     petName
