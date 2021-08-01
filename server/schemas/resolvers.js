@@ -79,7 +79,7 @@ const resolvers = {
           // };
           const pet = await Pet.create( petData )
           const user = await User.findOneAndUpdate(
-            { _id:conxext.user._id},
+            { _id:context.user._id},
             { $addToSet: { pets: pet } },
             { new: true }
             )
