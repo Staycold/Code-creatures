@@ -14,9 +14,12 @@ const Profile = () => {
    // console.log(userData.pets[0].petType)
 
    useEffect(() => {
-    // if (userData.pets.length === 0) {
-    //    return
-    // }
+    if (!userData.pets){
+        return
+    }
+    if (userData.pets.length === 0) {
+       return
+    }
     if (userData.pets[0].petType === 'fox') {
      //   setSprite(userData.pets[0].petType)
      setSprite('fox')
@@ -29,13 +32,15 @@ const Profile = () => {
        // setSprite(userData.pets[0].petType)
        setSprite('cat')
 }
-})
+},[data])
 
     if (loading) {
         return <h2>LOADING...</h2>;
     } else {
-        petData = userData.pets[0]
-        console.log(petData)
+        if(userData.pets.length !== 0) {
+            petData = userData.pets[0]
+            console.log(petData)
+        }
       //  console.log(userData.pets[0].petType)
     }
 
