@@ -35,6 +35,7 @@ const NewPet = () => {
             petType: newPetData.petType,
             experience: 0,
             level: 1,
+            happiness:0,
         }
         console.log(petToSave)
         const token = Auth.loggedIn() ? Auth.getToken() : null;

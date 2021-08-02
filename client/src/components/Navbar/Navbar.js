@@ -22,14 +22,19 @@ const AppNavBar = () => {
                         <Link to="/">
                             <li>HOMEPAGE</li>
                         </Link>
-                        <Link to="/profile">
-                            <li>PROFILE</li>
-                        </Link>
-                        <Link to="/challenges">
-                            <li>CHALLENGES</li>
-                        </Link>
                         {Auth.loggedIn() ? (
-                            <li onClick={Auth.logout} >LOGOUT</li>
+                            <>
+                                <Link to="/profile">
+                                    <li>PROFILE</li>
+                                </Link>
+                                <Link to="/challenges">
+                                    <li>CHALLENGES</li>
+                                </Link>
+                                <Link to="/store">
+                                    <li>STORE</li>
+                                </Link>
+                                <li onClick={Auth.logout} >LOGOUT</li>
+                            </>
                         ) : (
                             <li onClick={() => setShowModal(true)}>LOGIN/SIGNUP</li>
 

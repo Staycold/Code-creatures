@@ -73,6 +73,7 @@ const Storefront = () => {
                 }
             })
             console.log(data)
+            window.location.replace('/store')
         } catch (err) {
             console.error(err)
         }

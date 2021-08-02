@@ -4,8 +4,10 @@ import { QUERY_USER } from '../../utils/queries';
 import Auth from '../../utils/auth';
 import NewPet from './newPet';
 import imgs from '../../images/index.js'
-import { EDIT_INV } from '../../utils/mutations';
+
 import './profile.css'
+import { EDIT_INV, ADD_HAP } from '../../utils/mutations';
+
 
 
 const Profile = () => {
@@ -17,11 +19,13 @@ const Profile = () => {
         food2: 0,
         food3: 0,
     })
+    const [happiness, setHappiness] = useState(0)
     const [sprite, setSprite] = useState('cat')
     let petData
     // console.log(userData.pets[0].petType)
 
     const [editInv, { error }] = useMutation(EDIT_INV)
+    const [addHap] = useMutation(ADD_HAP)
 
     useEffect(() => {
         if (userData.inventory) {
@@ -50,6 +54,7 @@ const Profile = () => {
             // setSprite(userData.pets[0].petType)
             setSprite('cat')
         }
+                    setHappiness(userData.pets[0].happiness)
     }, [data])
 
     if (loading) {
@@ -57,6 +62,7 @@ const Profile = () => {
     } else {
         if (userData.pets.length !== 0) {
             petData = userData.pets[0]
+
         }
         //  console.log(userData.pets[0].petType)
     }
@@ -88,19 +94,33 @@ const Profile = () => {
                         invData: { ...inv }
                     }
                 })
-                console.log(data)
+
+                const hap = await addHap({
+                    variables: {
+                        hapValue: 10
+                    }
+                })
+                // console.log(data.mutateInv)
+                setInv({
+                    coins: data.mutateInv.inventory.coins,
+                    food1: data.mutateInv.inventory.food1,
+                    food2: data.mutateInv.inventory.food2,
+                    food3: data.mutateInv.inventory.food3
+                })
+                setHappiness(hap.data.addHappiness.pets[0].happiness)
             } catch (err) {
                 console.error(err)
             }
+
         }
 
     }
 
-    console.log(userData)
+    // console.log(userData)
     return (
         <main>
             <div>
-                <button onClick={() => console.log(userData.pets)}>HERE</button>
+                <button onClick={() => console.log(userData.pets[0])}>HERE</button>
             </div>
             {hasNoPet() ? (
                 <NewPet />
@@ -116,6 +136,7 @@ const Profile = () => {
                     </div>
                     <div className="inventoryInfo">
                     <p>Coins:{inv.coins}</p>
+                    <p>Happiness:{happiness}</p>
                     <p>FOOD1:{inv.food1}</p>
                     <p>FOOD2:{inv.food2}</p>
                     <p>food3:{inv.food3}</p>
