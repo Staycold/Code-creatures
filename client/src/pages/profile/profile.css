@@ -1,10 +1,45 @@
-#pet1 {
-    left:0;
-    width:400px;
-    height: 400px;
-    background:url('../../images/WhitePet2_Png.png') 0 0;
+
+.profileContainer {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-#pet1:hover {
-    background:url('../../images/WhitePet1_Png.png') 0 0;
+
+.petContainer2 {
+    width: 500px;
+    background-image: url('../../images/Grass_Texture.png');
+    border: 1px solid green;
+    border-radius: 3px;
+    margin-top: auto;
 }
+
+
+.petInfo, .inventoryInfo {
+    height: 300px;
+    width: 300px;
+    border: 1px solid rgb(82, 60, 13);
+    border-radius: 5px;
+    background-color: rgb(250, 247, 233);
+    padding: 15px;
+}
+
+
+#profilePet {
+    margin: auto;
+}
+/* 
+keyframes to animate pet sprite bouncing around (if i can get it to work)
+@keyframes petOnProfile {
+    0%   { left:0px; }
+    25%  { left:100px; }
+    50%  { left:200px; }
+    75%  { left:300px; }
+    100% { left:400px; }
+} */
+
+/* #pet1:hover {
+    background:url('../../images/WhitePet1_Png.png') 0 0;
+} */

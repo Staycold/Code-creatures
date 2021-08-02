@@ -4,7 +4,10 @@ import { QUERY_USER } from '../../utils/queries';
 import Auth from '../../utils/auth';
 import NewPet from './newPet';
 import imgs from '../../images/index.js'
+
+import './profile.css'
 import { EDIT_INV, ADD_HAP } from '../../utils/mutations';
+
 
 
 const Profile = () => {
@@ -122,11 +125,16 @@ const Profile = () => {
             {hasNoPet() ? (
                 <NewPet />
             ) : (
-                <div>
-                    <img src={imgs[sprite]} />
+                <div className="profileContainer">
+                    <div className="petContainer2">
+                    <img id="profilePet" src={imgs[sprite]} alt="your-pet" />
+                    </div>
+                    <div className="petInfo">
                     <p>Name:{petData.petName}</p>
                     <p>Experience:{petData.experience}</p>
                     <p>Level:{petData.level} </p>
+                    </div>
+                    <div className="inventoryInfo">
                     <p>Coins:{inv.coins}</p>
                     <p>Happiness:{happiness}</p>
                     <p>FOOD1:{inv.food1}</p>
@@ -138,6 +146,7 @@ const Profile = () => {
                         <button onClick={() => handleFood('food1')}>USE food1</button>
                         <button onClick={() => handleFood('food2')}>USE food2</button>
                         <button onClick={() => handleFood('food3')}>USE food3</button>
+                    </div>
                     </div>
                 </div>
 

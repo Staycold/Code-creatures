@@ -1,17 +1,30 @@
+/* TODO - optimize for mobile */
+
 body {
     background-image: url('../../images/bg-sky.png');
   }
 
-  .card-homepage {
-    margin-top: 100px; 
-    margin-left: 50px;
-    max-width: 50%;
-  }
   
-.petContainer {
+.petContainer1 {
     background-image: url('../../images/Grass_Texture.png');
     min-height: 300px;
     bottom: 0;
+}
+
+.card-homepage {
+    max-height: 300px;
+    max-width: 45%;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: cornsilk;
+    padding: 15px;
+}
+
+#sun {
+    float: right;
+    margin-right: 45px;
+    width: 200px;
+    height: 200px;
 }
 
   #catImg {
@@ -43,24 +56,6 @@ body {
         height: 92px;
     }
 
-    .card-homepage {
-        max-height: 300px;
-        max-width: 45%;
-        border: 2px solid black;
-        border-radius: 5px;
-        background-color: cornsilk;
-        padding: 15px
-    }
-
-
-  /* .homePageTop{
-    background-image: url('../../images/Grass_Texture.png');
-    max-height: 50%;
-    max-width: 100%;
-    bottom: 0;
-    position: absolute
-  } */
-  
 
   
 
