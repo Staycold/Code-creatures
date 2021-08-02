@@ -78,4 +78,17 @@ mutation addExp($petExp:Int! ){
   }
 }
 `
+
+export const ADD_HAP = gql`
+mutation addHappiness($hapValue: Int!){
+  addHappiness(hapValue:$hapValue){
+    username
+    pets{
+      petName
+      experience
+      happiness
+    }
+  }
+}
+`
 ;

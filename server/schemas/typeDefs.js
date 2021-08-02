@@ -22,6 +22,7 @@ type Pet {
     petType: String!
     experience: Int
     level: Int!
+    happiness: Int!
 }
 
 type Inventory {
@@ -61,6 +62,7 @@ type Mutation {
     addChallenge( challenge: challengeData!): Question
     mutateInv( invData: InventoryData! ) : User
     addExp(petExp: Int! ) : User
+    addHappiness(hapValue: Int!):User
 }
 
 input InventoryData {
@@ -82,19 +84,8 @@ input PetStats {
     petType: String!
     experience: Int!
     level: Int!
+    happiness: Int!
 }
-
-input petExp {
-    exp: Int!
-
-
-}
-
-
-
-
-
-
 `
 
 module.exports = typeDefs;

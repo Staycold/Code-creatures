@@ -13,11 +13,11 @@ query me{
           food3
         }
         pets{
-            petId
             petName
             petType
             experience
             level
+            happiness
         }
     }
 }
