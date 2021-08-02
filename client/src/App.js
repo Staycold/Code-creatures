@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {
   ApolloClient,
@@ -45,6 +45,8 @@ const client = new ApolloClient({
 
 
 function App() {
+  const [petData, setPetData] = useState({});
+
   return (
     // REPLACE WITH APOLLOPROVIDER WHEN WE CAN
     <ApolloProvider client={client}>

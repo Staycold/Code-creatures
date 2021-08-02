@@ -21,7 +21,7 @@ const Challenges = () => {
 
     const [answered, setAnswered] = useState(false)
 
-    const [addExp, {error}]= useMutation(ADD_EXP)
+    const [addExp]= useMutation(ADD_EXP)
     
     const { loading, data } = useQuery(GET_SINGLE_CHALLENGE,
         {
@@ -91,35 +91,37 @@ const Challenges = () => {
 
 
         return (
-            <main>
-                <div>
-                    Challenges
+            <main className="main">
+                <div className='title'>
+                    Take your time :)
                 </div>
                 <div>
 
-                    <h2>Question</h2>
+                    <h2  className='header'>Here is your Challenge :</h2>
 
                    
 
-                    <h4> {challenge.question}</h4>
+                    <h4 className='question'> {challenge.question} ?</h4>
                 </div>
                 {!answered ?(
+                    <div className='container'>
                 <h5>
                     {answers.map((choice) => {
-                     return  <div className='choices' onClick={() => setResponse(choice)}>{choice}  </div>  
+                     return  <div className= 'choices' onClick={() => setResponse(choice)}>{choice}  </div>  
                     })}
                                     
-                    <button type='submit' onClick={(handleSelection)}>Final Answer</button>
+                    <button className='btn' type='submit' onClick={(handleSelection)}>Final Answer</button>
                     </h5>
+                    </div>
                         ):(<div>
 
                     {nextQuestion ? <div>
-                    <h2> YOU GOT IT RIGHT! RIGHT ON!</h2>
+                    <h2 className='verify'> YOU GOT IT RIGHT! RIGHT ON!</h2>
                    
                     <Link to="/challenges"> Back to Challenges!</Link>
                 </div>:
                     <div>
-                    <h2> NICE TRY! Keep trying!</h2>
+                    <h2 className='verify'> NICE TRY! Keep trying!</h2>
                     <Link to="/challenges"> Back to Challenges!</Link>
                 </div>}
                 

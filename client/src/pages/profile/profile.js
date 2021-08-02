@@ -11,8 +11,10 @@ import { EDIT_INV, ADD_HAP } from '../../utils/mutations';
 
 
 const Profile = () => {
-    const { loading, data } = useQuery(QUERY_USER);
-    const userData = data?.me || {};
+    const { loading, data } = useQuery(QUERY_USER,
+     { fetchPolicy: "network-only" 
+    });
+    let userData = data?.me || {};
     const [inv, setInv] = useState({
         coins: 0,
         food1: 0,
@@ -23,6 +25,7 @@ const Profile = () => {
     const [sprite, setSprite] = useState('cat')
     let petData
     // console.log(userData.pets[0].petType)
+
 
     const [editInv, { error }] = useMutation(EDIT_INV)
     const [addHap] = useMutation(ADD_HAP)
@@ -41,7 +44,7 @@ const Profile = () => {
         }
         if (userData.pets.length === 0) {
             return
-        }
+        } 
         if (userData.pets[0].petType === 'fox') {
             //   setSprite(userData.pets[0].petType)
             setSprite('fox')

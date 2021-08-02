@@ -1,12 +1,118 @@
 
-.choices{
-    height: 200px;
-    width: 450px;
+
+:root{
+    background: #242c33;
+    color: #FFC8DD;
+}
+
+
+.main{
+    background: #242c33;
+    color: #FFC8DD;
+}
+
+.coldFooter{
+    background: #242c33;
+    color: #FFC8DD;
     display: flex;
-    flex-wrap: wrap;
     text-align: center;
-    font-size: 3rem;
-    background-image: linear-gradient(#BDE0FE, #A2D2FF);
-    color: #FFAFCC ;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
+
+.question{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+}
+
+.choices{
+    height: 100px;
+    min-width: 300px;
+    max-width: auto;
+    display: flex;
+    text-align: center;
+    font-size: 1rem;
+    background-image: linear-gradient(#BDE0FE, #A2D2FF);
+    /* color: #FFAFCC ; */
+    color: #000;
+    align-items: center;
+}
+
+.choices:hover{
+    cursor: pointer;
+    box-shadow:0 5px 10px 0 #FFC8DD;
+    transition: transform 150ms;
+    transform: scale(1.05);
+}
+
+/* a {
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+    color: #f4f4f4;
+    text-transform: uppercase;
+  } */
+  
+
+  /* =========================Start of BUTTON================= */
+  .btn {
+    text-decoration: none;
+    border: 1px solid rgb(146, 148, 248);
+    position: relative;
+    overflow: hidden;
+    height: 60px;
+    width: 180px;
+    background: transparent;
+    color: rgb(164, 112, 194);
+    margin-top: 20px;
+    font-size: 1.4rem;
+  }
+  
+  .btn:hover {
+    box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
+  }
+  
+  .btn:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(146, 148, 248, 0.4),
+      transparent
+    );
+    transition: all 650ms;
+  }
+  
+  .btn:hover:before {
+    left: 100%;
+  }
+
+/* ====================== END OF BUTTON================== */
+
+  /* challenge hub */
+
