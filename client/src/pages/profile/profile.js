@@ -8,7 +8,6 @@ import { EDIT_INV, ADD_HAP } from '../../utils/mutations';
 
 
 const Profile = () => {
-    // maybe put the query in a function and call at beginning? plus call it again after call mutation
     const { loading, data } = useQuery(QUERY_USER);
     const userData = data?.me || {};
     const [inv, setInv] = useState({
@@ -17,6 +16,7 @@ const Profile = () => {
         food2: 0,
         food3: 0,
     })
+    const [happiness, setHappiness] = useState(0)
     const [sprite, setSprite] = useState('cat')
     let petData
     // console.log(userData.pets[0].petType)
@@ -51,6 +51,7 @@ const Profile = () => {
             // setSprite(userData.pets[0].petType)
             setSprite('cat')
         }
+                    setHappiness(userData.pets[0].happiness)
     }, [data])
 
     if (loading) {
@@ -58,6 +59,7 @@ const Profile = () => {
     } else {
         if (userData.pets.length !== 0) {
             petData = userData.pets[0]
+
         }
         //  console.log(userData.pets[0].petType)
     }
@@ -95,6 +97,14 @@ const Profile = () => {
                         hapValue: 10
                     }
                 })
+                // console.log(data.mutateInv)
+                setInv({
+                    coins: data.mutateInv.inventory.coins,
+                    food1: data.mutateInv.inventory.food1,
+                    food2: data.mutateInv.inventory.food2,
+                    food3: data.mutateInv.inventory.food3
+                })
+                setHappiness(hap.data.addHappiness.pets[0].happiness)
             } catch (err) {
                 console.error(err)
             }
@@ -118,6 +128,7 @@ const Profile = () => {
                     <p>Experience:{petData.experience}</p>
                     <p>Level:{petData.level} </p>
                     <p>Coins:{inv.coins}</p>
+                    <p>Happiness:{happiness}</p>
                     <p>FOOD1:{inv.food1}</p>
                     <p>FOOD2:{inv.food2}</p>
                     <p>food3:{inv.food3}</p>
