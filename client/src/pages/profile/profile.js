@@ -4,10 +4,11 @@ import { QUERY_USER } from '../../utils/queries';
 import Auth from '../../utils/auth';
 import NewPet from './newPet';
 import imgs from '../../images/index.js'
-import { EDIT_INV } from '../../utils/mutations';
+import { EDIT_INV, ADD_HAP } from '../../utils/mutations';
 
 
 const Profile = () => {
+    // maybe put the query in a function and call at beginning? plus call it again after call mutation
     const { loading, data } = useQuery(QUERY_USER);
     const userData = data?.me || {};
     const [inv, setInv] = useState({
@@ -21,6 +22,7 @@ const Profile = () => {
     // console.log(userData.pets[0].petType)
 
     const [editInv, { error }] = useMutation(EDIT_INV)
+    const [addHap] = useMutation(ADD_HAP)
 
     useEffect(() => {
         if (userData.inventory) {
@@ -87,19 +89,25 @@ const Profile = () => {
                         invData: { ...inv }
                     }
                 })
-                console.log(data)
+
+                const hap = await addHap({
+                    variables: {
+                        hapValue: 10
+                    }
+                })
             } catch (err) {
                 console.error(err)
             }
+
         }
 
     }
 
-    console.log(userData)
+    // console.log(userData)
     return (
         <main>
             <div>
-                <button onClick={() => console.log(userData.pets)}>HERE</button>
+                <button onClick={() => console.log(userData.pets[0])}>HERE</button>
             </div>
             {hasNoPet() ? (
                 <NewPet />
