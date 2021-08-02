@@ -1,0 +1,6 @@
+.coldFooter {
+    position: sticky;
+    height: 125px;
+    background-color: rgb(105, 233, 105);
+    bottom: 0;
+  }
