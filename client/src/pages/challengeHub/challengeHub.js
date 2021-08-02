@@ -43,7 +43,8 @@ const ChallengeHub = () => {
                                    
                 </div>
                 <Link to={`/challenges/${question._id}`}>
-                <h2>{question.question}</h2> 
+                {/* <h2>{question.question}</h2>  */}
+                <h2>Question</h2> 
                         </Link>
               
               </div>
