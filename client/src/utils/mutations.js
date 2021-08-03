@@ -91,4 +91,15 @@ mutation addHappiness($hapValue: Int!){
   }
 }
 `
+
+export const ADD_COINS = gql`
+mutation addCoins($coins: Int!){
+  addCoins(coins:$coins){
+    username
+    inventory{
+      coins
+    }
+  }
+}
+`
 ;

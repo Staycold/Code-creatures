@@ -1,0 +1,15 @@
+button {
+    /* background-color: blue; */
+    border-radius:15px;
+    float:right;
+}
+
+.submitBtn {
+    float:left;
+}
+
+.nav-cust {
+    background-color: #13293d;
+    color: #ffffff;
+    margin:0;
+}

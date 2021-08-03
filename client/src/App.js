@@ -13,12 +13,13 @@ import { setContext } from '@apollo/client/link/context';
 import Home from './pages/home/home';
 import Profile from './pages/profile/profile';
 import Challenges from './pages/challenges/challenges'
-import Navbar from './components/Navbar/Navbar';
+// import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/footer';
 import ChallengeHub from './pages/challengeHub/challengeHub';
 import Store from './pages/store/store'
 import AddChallenge from './pages/Admin/admin';
-
+import 'bootstrap/dist/css/bootstrap.min.css'
+import AppNavbar from './components/react-bootstrap-nav/Navbar'
 //import 'bootstrap/dist/css/bootstrap.min.css'
 //import './App.css'
 
@@ -56,7 +57,7 @@ function App() {
     <div className="App">
       <Router>
         <>
-          <Navbar />
+          <AppNavbar />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/profile' component={Profile} />

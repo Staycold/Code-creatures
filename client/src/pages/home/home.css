@@ -4,59 +4,77 @@ body {
     background-image: url('../../images/bg-sky.png');
   }
 
-  
+  .home-body {
+  height: 81.5vh;
+}
+
 .petContainer1 {
     background-image: url('../../images/Grass_Texture.png');
-    min-height: 300px;
-    bottom: 0;
+    position:absolute;
+    height: 30vh;
+    width:100%;
+    bottom:0;
+    margin-top:18vh;
+    z-index: -1;
 }
 
 .card-homepage {
-    max-height: 300px;
-    max-width: 45%;
-    border: 2px solid black;
-    border-radius: 5px;
-    background-color: cornsilk;
-    padding: 15px;
+
+  margin-top: 6vh;
+  margin-left:6vw;
+  height:fit-content;
+  padding: 2vh 2vw 2vh 2vw;
+  max-width: 45%;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: cornsilk;
+  padding: 15px;
 }
 
 #sun {
-    float: right;
-    margin-right: 45px;
-    width: 200px;
-    height: 200px;
+  position: absolute;
+  right:10vw;
+  width: 10vw;
+  height: 10vw;
 }
 
   #catImg {
-    float: right;
-    margin-right: 50px;
+    position: absolute;
+    min-width:10vw;
+    min-height: 10vw;
+    right:10vw;
+    bottom: 4vh;
+    z-index: 3;
   }
   #foxImg {
-    float: right;
-    margin-right: 100px;
+    position: absolute;
+    min-width:10vw;
+    min-height: 10vw;
+    right:2vw;
+    bottom: 20vh;
   }
   #rabbitImg {
-    float: right;
-    margin-right: 75px;
+    position: absolute;
+    min-width:10vw;
+    min-height: 10vw;
+    right:18vw;
+    bottom:14vh;
   }
   
-    #cloud1 {
-        float: right;
-        margin-right: 75px;
-        margin-top: 60px;
-        width: 125px;
-        height: 92px;
-    }
+#cloud1 {
+  position: absolute;
+  right: 30vw;
+  top: 34vh;
+  width:10vw;
+  height: 8vw;
+}
     
-    #cloud3 {
-        float: right;
-        margin-right: 125px;
-        margin-top: 30px;
-        width: 125px;
-        height: 92px;
-    }
-
-
-  
+#cloud3 {
+  position: absolute;
+  right: 15vw;
+  top: 45vh;
+  width:10vw;
+  height: 8vw;
+}
 
 

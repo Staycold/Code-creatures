@@ -2,9 +2,8 @@ import React, { useState} from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client'
 import { GET_SINGLE_CHALLENGE } from '../../utils/queries';
-import { ADD_EXP } from '../../utils/mutations';
 import imgs from '../../images';
-
+import { ADD_EXP, ADD_COINS } from '../../utils/mutations';
 
 import './challenge.css'
 
@@ -24,6 +23,8 @@ const Challenges = () => {
     const [answered, setAnswered] = useState(false)
 
     const [addExp]= useMutation(ADD_EXP)
+
+    const [addCoins] = useMutation(ADD_COINS)
     
     const { loading, data } = useQuery(GET_SINGLE_CHALLENGE,
         {
@@ -83,7 +84,12 @@ const Challenges = () => {
         const { data } = await addExp({
             variables: { petExp:10 }
         })
-        console.log(data)
+
+        const coins = await addCoins({
+            variables: { coins:10 }
+        })
+        // console.log(data)
+        console.log(coins.data)
     } catch (err) {
         console.error(err)
     }

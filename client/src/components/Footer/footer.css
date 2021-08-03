@@ -6,7 +6,8 @@
   } */
 
   .coldFooter{
-    background: #242c33;
+    height:5vh;
+    background: #13293d;
      /* background-color: rgb(105, 233, 105); */
     color: #FFC8DD;
     display: flex;
