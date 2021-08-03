@@ -54,8 +54,8 @@ and sharpen coding knowledge, all in one place!
 
 Heroku Deployed:
 
-    <ul>
-    <   li> <a href="https://github.com/Staycold/Code-creatures" target="_blank">https://github.com/Staycold/Code-creatures</a> </li>
+<ul>
+    <li> <a href="https://cold-code-creatures.herokuapp.com/" target="_blank">https://cold-code-creatures.herokuapp.com/</a> </li>
     </ul>
 
 

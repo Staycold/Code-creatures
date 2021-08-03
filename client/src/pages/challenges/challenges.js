@@ -127,14 +127,24 @@ const Challenges = () => {
                         ):(<div>
 
                     {nextQuestion ? <div>
+                    <div className='verify'>
                     <h2 className='verify'> YOU GOT IT RIGHT! RIGHT ON!</h2>
-                   
+                   </div>
+                   <div className='verify2'>
                     <Link to="/challenges"> Back to Challenges!</Link>
+                    </div>
                 </div>:
-                    <div>
-                    <h2 className='verify'> NICE TRY! Keep trying!</h2>
+                <div>
+                    <div className='verify3'>
+
+                    <h2 className='verify3'> NICE TRY! Keep trying!</h2>
+
+                    </div>
+                    <div className='verify4'>
+
                     <Link to="/challenges"> Back to Challenges!</Link>
-                </div>}
+                      </div>      
+                    </div>}
                 
                          </div>
                 )}
