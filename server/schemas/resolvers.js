@@ -44,8 +44,6 @@ const resolvers = {
       if (!context.user) {
         throw new AuthenticationError('You need to be logged');
       }
-      console.log(invData)
-
       const user = await User.findOneAndUpdate(
         { _id: context.user._id },
         { $set: { inventory: invData } },
@@ -71,21 +69,14 @@ const resolvers = {
     },
 
     addPet: async (parent, { petData }, context) => {
-      //create the new pet
-      //update the user with the new created pet
-      // console.log(context)
-      //   if (!context.user) {
-      //     throw new AuthenticationError('You need to be logged ');
-      // };
+
       const pet = await Pet.create(petData)
       const user = await User.findOneAndUpdate(
         { _id: context.user._id },
         { $addToSet: { pets: pet } },
         { new: true }
       )
-      // const pet = await Pet.create({ petName });
-      // const token = signToken(user);
-      // return { pet }
+
       return user
     },
     addChallenge: async (parent, args) => {
