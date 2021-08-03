@@ -14,10 +14,11 @@ import watermelon from './watermelon.png'
 import shopkeep1 from './shopkeep1.png'
 import shopkeep2 from './shopkeep2.png'
 import shopkeep3 from './shopkeep3.png'
-
 import shopkeep4 from './shopkeep4.png'
-
 import happy from './sprites/Status_Happy.png'
+import bush from './Bush2x.png'
+import tree from './Tree2x.png'
+import boulders from './Boulders2x.png'
 
 
 const imgs = {
@@ -37,9 +38,11 @@ const imgs = {
     shopkeep1,
     shopkeep2,
     shopkeep3,
-
     shopkeep4,
-    happy
+    happy,
+    bush,
+    tree,
+    boulders
 
 }
 
