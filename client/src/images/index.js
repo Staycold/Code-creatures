@@ -43,7 +43,7 @@ const imgs = {
     sun,
     catSprites,
     foxSprites,
-    rabbitSprites
+    rabbitSprites,
     orange,
     cherry,
     watermelon,
