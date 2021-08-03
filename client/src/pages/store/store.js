@@ -20,7 +20,7 @@ const Storefront = () => {
     })
     const [showConfirm, setShowConfirm] = useState(false)
 
-    const { loading, data } = useQuery(QUERY_USER);
+    const { loading, data } = useQuery(QUERY_USER, { fetchPolicy: "network-only" });
     const userData = data?.me.inventory || {};
 
     const [editInv, { error }] = useMutation(EDIT_INV)

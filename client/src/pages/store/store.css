@@ -1,5 +1,5 @@
 .store {
-	min-height: 82vh;
+	min-height: 85.5vh;
 	color:black;
 	/* display:flex; */
 
@@ -69,6 +69,6 @@
 
 .storeItem img {
 	/* border: 1px solid black; */
-    width:33%;
+    width:60%;
 	padding: 5vh 5vw 5vh 5vw;
 }
