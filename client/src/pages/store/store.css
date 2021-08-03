@@ -1,10 +1,15 @@
 .store {
-	min-height: 82vh;
+	min-height: 87.5vh;
 	color:black;
+	margin:0;
 	/* display:flex; */
-
+	background-image: url('../../images/store-background.jpg');
+	background-size: 100vh;
 }
 
+.spacer {
+	width:2vh;
+}
 .cart {
 	margin: 2vh 2vw 2vh 2vw;
 	width:fit-content;
@@ -69,6 +74,6 @@
 
 .storeItem img {
 	/* border: 1px solid black; */
-    width:33%;
+    width:60%;
 	padding: 5vh 5vw 5vh 5vw;
 }

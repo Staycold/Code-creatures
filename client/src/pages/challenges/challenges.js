@@ -117,7 +117,7 @@ const Challenges = () => {
                      return  <div className= 'choices' onClick={() => setResponse(choice)}>{choice}  </div>  
                     })}
                                     
-                    <button className='btn' type='submit' onClick={(handleSelection)}>Final Answer</button>
+                    <button className='faBtn' type='submit' onClick={(handleSelection)}>Final Answer</button>
                     </h5>
                     </div>
                         ):(<div>

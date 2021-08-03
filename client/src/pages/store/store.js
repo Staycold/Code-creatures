@@ -20,7 +20,7 @@ const Storefront = () => {
     })
     const [showConfirm, setShowConfirm] = useState(false)
 
-    const { loading, data } = useQuery(QUERY_USER);
+    const { loading, data } = useQuery(QUERY_USER, { fetchPolicy: "network-only" });
     const userData = data?.me.inventory || {};
 
     const [editInv, { error }] = useMutation(EDIT_INV)
@@ -87,6 +87,7 @@ const Storefront = () => {
 
     return (
         <div className="store">
+            <div className="spacer">'</div>
             <div className="storekeeper">
                 <img src={imgs.shopkeep1} onMouseOver={(event) => changeShopkeep(event, 'shopkeep2')} onMouseLeave={(event) => changeShopkeep(event, 'shopkeep1')} />
                 {!showConfirm ?
