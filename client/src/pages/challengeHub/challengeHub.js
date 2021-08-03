@@ -26,7 +26,7 @@ const ChallengeHub = () => {
         
             return (
                 <>
-                <main>
+                <main className='main'>
                     <div>
                         Challenges
                     </div>

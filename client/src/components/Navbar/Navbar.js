@@ -14,7 +14,7 @@ const AppNavBar = () => {
             <div className="header-container">
                 <div className="brand">
                     <Link to="/">
-                        <h1>APP NAME</h1>
+                        <h1>Code Creatures</h1>
                     </Link>
                 </div>
                 <nav className='navbar'>
