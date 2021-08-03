@@ -8,25 +8,30 @@ import imgs from '../../images/index.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './profile.css'
 
+// profile page
 const Profile = () => {
     const { loading, data } = useQuery(QUERY_USER,
-     { fetchPolicy: "network-only" 
-    });
+        {
+            fetchPolicy: "network-only"
+        });
     let userData = data?.me || {};
+    // state to track inventory
     const [inv, setInv] = useState({
         coins: 0,
         food1: 0,
         food2: 0,
         food3: 0,
     })
+    // state to track happiness
     const [happiness, setHappiness] = useState(0)
+    // state to track sprite
     const [sprite, setSprite] = useState('cat')
     let petData
 
-
-    const [editInv, { error }] = useMutation(EDIT_INV)
+    const [editInv] = useMutation(EDIT_INV)
     const [addHap] = useMutation(ADD_HAP)
 
+    // on load, set states
     useEffect(() => {
         if (userData.inventory) {
             setInv({
@@ -41,7 +46,7 @@ const Profile = () => {
         }
         if (userData.pets.length === 0) {
             return
-        } 
+        }
         if (userData.pets[0].petType === 'fox') {
             setSprite('fox')
         }
@@ -51,7 +56,7 @@ const Profile = () => {
         if (userData.pets[0].petType === 'cat') {
             setSprite('cat')
         }
-                    setHappiness(userData.pets[0].happiness)
+        setHappiness(userData.pets[0].happiness)
     }, [data])
 
     if (loading) {
@@ -59,23 +64,39 @@ const Profile = () => {
     } else {
         if (userData.pets.length !== 0) {
             petData = userData.pets[0]
-
         }
     }
 
 
-
+    // if user has no pet, render newpet page
     const hasNoPet = () => {
         return (userData.pets.length === 0)
     }
 
     const handleFood = async (food) => {
+        // if no food, cant do anything
         if (inv[food] === 0) {
-            // make a way to show that you do not have food
             return
         } else {
+            // subtract from inv state
             const newFoodVal = inv[food] - 1
-            setInv({ ...inv, [food]: newFoodVal })
+            const newInv = ({ ...inv, [food]: newFoodVal })
+            // happiness value to increase based on food
+            let hapVar
+            switch (food) {
+                case 'food1':
+                    hapVar = 3;
+                    break;
+                case 'food2':
+                    hapVar = 5;
+                    break;
+                case 'food3':
+                    hapVar = 10;
+                    break;
+                default:
+                    break;
+
+            }
 
             const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -83,20 +104,17 @@ const Profile = () => {
                 return false
             }
 
-            // find a way to delay until state is updated
             try {
                 const { data } = await editInv({
                     variables: {
-                        invData: { ...inv }
+                        invData: { ...newInv }
                     }
                 })
-
                 const hap = await addHap({
                     variables: {
-                        hapValue: 10
+                        hapValue: hapVar
                     }
                 })
-                // console.log(data.mutateInv)
                 setInv({
                     coins: data.mutateInv.inventory.coins,
                     food1: data.mutateInv.inventory.food1,
@@ -112,15 +130,15 @@ const Profile = () => {
 
     }
 
-const petStatus = (hover) => {
-   const hoverStatus = document.querySelector('#petStatus');
- if (hover) {
-   hoverStatus.removeAttribute('hidden');
- }
-    else {
-        hoverStatus.hidden = true;
+    const petStatus = (hover) => {
+        const hoverStatus = document.querySelector('#petStatus');
+        if (hover) {
+            hoverStatus.removeAttribute('hidden');
+        }
+        else {
+            hoverStatus.hidden = true;
+        }
     }
-}
 
 //trying to get keyframes working using styled-components
 
@@ -140,6 +158,7 @@ const petStatus = (hover) => {
 //   height: 128px;
 //   width: 128px;`
 
+
     return (
         <main>
             {hasNoPet() ? (
@@ -154,34 +173,32 @@ const petStatus = (hover) => {
                     <img id="boulders" src={imgs.boulders} alt="boulders" />
                     </div>
                     <div className="card profileInfoBoxes">
-                    <div className="card-header">
-                     <h4>About Your Pet</h4>
-                    </div>
-                    <div className="card-body">
-                    <h5 className="card-title">{petData.petName}</h5>
-                    <p className="card-text">Experience: {petData.experience} </p>
-                    <p className="card-text">Level: {petData.level} </p>
-                    <p className="card-text">Happiness: {happiness} </p>
-                    </div>
+                        <div className="card-header">
+                            <h4>About Your Pet</h4>
+                        </div>
+                        <div className="card-body">
+                            <h5 className="card-title">{petData.petName}</h5>
+                            <p className="card-text">Experience: {petData.experience} </p>
+                            <p className="card-text">Level: {petData.level} </p>
+                            <p className="card-text">Happiness: {happiness} </p>
+                        </div>
                     </div>
 
                     <div className="card profileInfoBoxes">
-                    <div className="card-header">
-                    <h4>Inventory</h4>
+                        <div className="card-header">
+                            <h4>Inventory</h4>
+                        </div>
+                        <div className="card-body">
+                            <p className="card-text">Coins: {inv.coins}</p>
+                            <p className="card-text">Oranges: {inv.food1}</p>
+                            <p className="card-text">Cherries: {inv.food2}</p>
+                            <p className="card-text">Watermelons: {inv.food3}</p>
+                            <button className="btn-sm btn-food" onClick={() => handleFood('food1')}>Feed Oranges</button>
+                            <button className="btn-sm btn-food" onClick={() => handleFood('food2')}>Feed Cherries</button>
+                            <button className="btn-sm btn-food" onClick={() => handleFood('food3')}>Feed Watermelon</button>
+                        </div>
                     </div>
-                    <div className="card-body">
-                    <p className="card-text">Coins: {inv.coins}</p>
-                    <p className="card-text">Oranges: {inv.food1}</p>
-                    <p className="card-text">Cherries: {inv.food2}</p>
-                    <p className="card-text">Watermelons: {inv.food3}</p>
-                    {/* BTN TO FEED FOOD */}
-                    {/* MAP OF INVENTORY FOR FOOD? */}
-                    <button className="btn-sm btn-food" onClick={() => handleFood('food1')}>Feed Oranges</button>
-                    <button className="btn-sm btn-food" onClick={() => handleFood('food2')}>Feed Cherries</button>
-                    <button className="btn-sm btn-food" onClick={() => handleFood('food3')}>Feed Watermelon</button>
-                    </div>
-                    </div>
-                    </div>
+                </div>
 
             )}
 
@@ -190,10 +207,3 @@ const petStatus = (hover) => {
 };
 
 export default Profile;
-
-
-// IF NO PET, CHOOSE BETWEEN 3 PET DEFAULTS *DONE
-
-// ESSENTIALLY THIS WILL BE THE PET PAGE
-// SHOW EXPERIENCE / LEVEL / HAPPINESS LEVEL?
-// CAN FEED FOOD HERE - CHANGES HAPPINESS LEVEL / EXPERIENCE LEVEL?
