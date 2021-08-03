@@ -23,6 +23,7 @@ import watermelon from './watermelon.png'
 import shopkeep1 from './shopkeep1.png'
 import shopkeep2 from './shopkeep2.png'
 import shopkeep3 from './shopkeep3.png'
+import shopkeep4 from './shopkeep4.png'
 
 const imgs = {
     cat,
@@ -49,7 +50,8 @@ const imgs = {
     watermelon,
     shopkeep1,
     shopkeep2,
-    shopkeep3
+    shopkeep3,
+    shopkeep4
 }
 
 export default imgs

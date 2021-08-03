@@ -18,12 +18,11 @@ const Storefront = () => {
         food2: 0,
         food3: 0,
     })
-    const [showConfirm, setShowConfirm] = useState(false)
 
     const { loading, data } = useQuery(QUERY_USER, { fetchPolicy: "network-only" });
     const userData = data?.me.inventory || {};
 
-    const [editInv, { error }] = useMutation(EDIT_INV)
+    const [editInv] = useMutation(EDIT_INV)
 
     useEffect(() => {
         setInvState({
@@ -50,16 +49,18 @@ const Storefront = () => {
         setInvState({ ...invState, coins: newCoinValue })
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
+        const shopDialogue = document.querySelector('#shopDialogue')
+        if (storeCart.food1 === 0 && storeCart.food2 === 0 && storeCart.food3 === 0) {
+            changeShopkeep('shopkeep4')
+            shopDialogue.innerHTML='Please put something in your cart'
+            return
+        }
+
         const newFood1Value = invState.food1 + storeCart.food1
         const newFood2Value = invState.food2 + storeCart.food2
         const newFood3Value = invState.food3 + storeCart.food3
-        setInvState({ ...invState, food1: newFood1Value, food2: newFood2Value, food3: newFood3Value })
-        setShowConfirm(true)
-    }
-
-    const handleConfirm = async (event) => {
         event.preventDefault();
         console.log(invState)
         const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -69,35 +70,56 @@ const Storefront = () => {
         }
 
         try {
-            const { data } = await editInv({
+            await editInv({
                 variables: {
-                    invData: { ...invState }
+                    invData: {
+                        coins: invState.coins,
+                        food1: newFood1Value,
+                        food2: newFood2Value,
+                        food3: newFood3Value,
+                    }
                 }
             })
-            console.log(data.mutateInv.inventory.coins)
-            window.location.replace('/store')
+
+            setStoreCart({
+                food1: 0,
+                food2: 0,
+                food3: 0,
+            })
+
+            setInvState({
+                coins: invState.coins,
+                food1: newFood1Value,
+                food2: newFood2Value,
+                food3: newFood3Value,
+            })
+            changeShopkeep('shopkeep3')
+            shopDialogue.innerHTML="Thanks, come again soon!"
         } catch (err) {
             console.error(err)
         }
+
     }
 
-    const changeShopkeep = (event, newSrc) => {
-        event.target.src = imgs[newSrc]
+    const changeShopkeep = (newSrc) => {
+        const shopkeep = document.querySelector('#shopkeep')
+        shopkeep.src = imgs[newSrc]
     }
 
     return (
         <div className="store">
             <div className="spacer">'</div>
             <div className="storekeeper">
-                <img src={imgs.shopkeep1} onMouseOver={(event) => changeShopkeep(event, 'shopkeep2')} onMouseLeave={(event) => changeShopkeep(event, 'shopkeep1')} />
-                {!showConfirm ?
+                <img alt="shopkeeper" id="shopkeep" src={imgs.shopkeep1} onMouseOver={() => changeShopkeep('shopkeep2')} onMouseLeave={() => changeShopkeep('shopkeep1')} />
+                <p id="shopDialogue">Welcome, click on the item to add it to your cart!</p>
+                {/* {!showConfirm ?
                     (
                         <p className="shopkeepDialogue">Welcome, click on the item to add it to your cart!</p>
                     )
                     :
                     (
-                        <p className="shopkeepDialogue">Ready to checkout?</p>
-                    )}
+                        <p className="shopkeepDialogue">Thanks for buying!</p>
+                    )} */}
 
             </div>
             <div className="cart">
@@ -106,27 +128,20 @@ const Storefront = () => {
                 <p>Oranges: {storeCart.food1} </p>
                 <p>Cherries: {storeCart.food2} </p>
                 <p>Watermelons: {storeCart.food3} </p>
-                {showConfirm ?
-                    (
-                        <button onClick={handleConfirm}>CONFIRM</button>
-                    )
-                    :
-                    (
-                        <button onClick={handleSubmit}>CHECKOUT</button>
-                    )}
+                <button onClick={handleSubmit}>CHECKOUT</button>
             </div>
             <div className="storeBoard">
                 <div className="storeOptions">
                     <div className="storeItem" onClick={(event) => handleStoreClick(event, "food1", 3)}>
-                        <img src={imgs.orange} />
+                        <img alt='orange' src={imgs.orange} />
                         <p>Orange</p>
                     </div>
                     <div className="storeItem" onClick={(event) => handleStoreClick(event, "food2", 5)}>
-                        <img src={imgs.cherry} />
+                        <img alt='cherry' src={imgs.cherry} />
                         <p>Cherry</p>
                     </div>
                     <div className="storeItem" onClick={(event) => handleStoreClick(event, "food3", 7)}>
-                        <img src={imgs.watermelon} />
+                        <img alt='watermelon' src={imgs.watermelon} />
                         <p>Watermelon</p>
                     </div>
                 </div>
