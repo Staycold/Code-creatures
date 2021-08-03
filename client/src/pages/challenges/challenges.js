@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client'
 import { GET_SINGLE_CHALLENGE } from '../../utils/queries';
 import { ADD_EXP } from '../../utils/mutations';
+import imgs from '../../images';
+
 
 import './challenge.css'
 
@@ -91,7 +93,10 @@ const Challenges = () => {
 
 
         return (
-            <main className="main">
+
+            
+            <main className="answersMain" >
+                {/* <img id="spaceSun" src={imgs.sun} alt="sun sprite" /> */}
                 <div className='title'>
                     Take your time :)
                 </div>
@@ -110,7 +115,7 @@ const Challenges = () => {
                      return  <div className= 'choices' onClick={() => setResponse(choice)}>{choice}  </div>  
                     })}
                                     
-                    <button className='btn' type='submit' onClick={(handleSelection)}>Final Answer</button>
+                    <button className='faBtn' type='submit' onClick={(handleSelection)}>Final Answer</button>
                     </h5>
                     </div>
                         ):(<div>

@@ -1,0 +1,50 @@
+.hubBg{
+    height: 100vh;
+    /* background-image: linear-gradient(#0F2027,#203A43,#2C5364); */
+    background-image: linear-gradient(to bottom right, #2980B9,#6DD5FA,#fff);
+    /* color: #A2D2FF; */
+    /* color: #203A43; */
+    color: #f0dadd;
+    font-size: 1.3rem;
+  }
+
+
+  .linkTxt{
+      color:#203A43 ;
+  }
+
+
+  #cloudOne {
+    float: right;
+    margin-right: 75px;
+    margin-top: 60px;
+    width: 125px;
+    height: 92px;
+}
+
+#cloudTwo {
+    float: right;
+    margin-right: 125px;
+    margin-top: 30px;
+    width: 125px;
+    height: 92px;
+}
+
+
+#cloudThree {
+    float: right;
+    margin-right: 125px;
+    margin-top: 30px;
+    width: 125px;
+    height: 92px;
+}
+
+
+#cloudFour {
+    float: right;
+    margin-right: 125px;
+    margin-top: 30px;
+    width: 125px;
+    height: 92px;
+}
+  

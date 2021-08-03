@@ -33,6 +33,7 @@ const AppNavBar = () => {
                                 <Link to="/store">
                                     <li>STORE</li>
                                 </Link>
+                                
                                 <li onClick={Auth.logout} >LOGOUT</li>
                             </>
                         ) : (

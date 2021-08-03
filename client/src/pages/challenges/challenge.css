@@ -23,9 +23,13 @@
     justify-content: center;
 } */
 
-.main{
+.answersMain{
   height: 100vh;
+  background-image: linear-gradient(#0F2027,#203A43,#2C5364);
+  color: #A2D2FF;
+  font-size: 1.3rem;
 }
+
 
 
 .title{
@@ -82,7 +86,7 @@
   
 
   /* =========================Start of BUTTON================= */
-  .btn {
+  .faBtn {
     text-decoration: none;
     border: 1px solid rgb(146, 148, 248);
     position: relative;
@@ -95,11 +99,11 @@
     font-size: 1.4rem;
   }
   
-  .btn:hover {
+  .faBtn:hover {
     box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
   }
   
-  .btn:before {
+  .faBtn:before {
     content: "";
     position: absolute;
     top: 0;
@@ -115,11 +119,18 @@
     transition: all 650ms;
   }
   
-  .btn:hover:before {
+  .faBtn:hover:before {
     left: 100%;
   }
 
 /* ====================== END OF BUTTON================== */
 
   /* challenge hub */
+
+  #spaceSun {
+    float: right;
+    margin-right: 45px;
+    width: 100px;
+    height: 100px;
+}
 

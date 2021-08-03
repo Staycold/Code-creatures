@@ -2,6 +2,8 @@ import React from 'react';
 import { GET_CHALLENGE } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
+import imgs from '../../images';
+import './challengeHub.css'
 
 
 const ChallengeHub = () => {
@@ -26,9 +28,15 @@ const ChallengeHub = () => {
         
             return (
                 <>
-                <main className='main'>
+                
+                <img id="cloudOne" src={imgs.cloud1} alt="cloud sprite 1" />
+                <img id="cloudTwo" src={imgs.cloud3} alt="cloud sprite 2" /> 
+                <img id="sun" src={imgs.sun} alt="sun sprite" />
+                <img id="cloudThree" src={imgs.cloud1} alt="cloud sprite 1" /> 
+                <img id="cloudFour" src={imgs.cloud3} alt="cloud sprite 2" /> 
+                <main className='hubBg'>
                     <div>
-                        Challenges
+                        
                     </div>
         <div>
             <h2>Daily Challenges</h2>
@@ -44,7 +52,7 @@ const ChallengeHub = () => {
                 </div>
                 <Link to={`/challenges/${question._id}`}>
                 {/* <h2>{question.question}</h2>  */}
-                <h2>Question</h2> 
+                <h2 className='linkTxt'>Question</h2> 
                         </Link>
               
               </div>

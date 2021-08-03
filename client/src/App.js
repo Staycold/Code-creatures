@@ -8,6 +8,8 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
+
+
 import Home from './pages/home/home';
 import Profile from './pages/profile/profile';
 import Challenges from './pages/challenges/challenges'
@@ -16,6 +18,7 @@ import Footer from './components/Footer/footer';
 import ChallengeHub from './pages/challengeHub/challengeHub';
 import Store from './pages/store/store'
 import AddChallenge from './pages/Admin/admin';
+
 //import 'bootstrap/dist/css/bootstrap.min.css'
 //import './App.css'
 
@@ -61,6 +64,7 @@ function App() {
             <Route exact path='/challenges/:questionId' component={Challenges}/>
             <Route exact path='/store' component={Store} />
             <Route exact path='/admin' component={AddChallenge} />
+            
             
 
             {/* <Route exact path='/login' component={Login} /> */}
