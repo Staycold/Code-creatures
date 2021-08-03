@@ -8,14 +8,14 @@
 }
 
 .petContainer2 {
-    width: 40vw;
-    height: 40vh;
+    width: 50vw;
+    height: 50vh;
     background-image: url('../../images/Grass_Texture.png');
     border: 1px solid green;
     border-radius: 3px;
     margin-top: auto;
+    display: inline-block;
 }
-
 
 .profileInfoBoxes {
     height: 25rem;
@@ -31,41 +31,51 @@
     border: 1px solid rgb(82, 60, 13)
 }
 
-/* #profilePet {
-    width: 128px;
-    height: 128px;
-} */
-/* 
-keyframes to animate pet sprite bouncing around (if i can get it to work)
-@keyframes petOnProfile {
-    0%   { left:0px; }
-    25%  { left:100px; }
-    50%  { left:200px; }
-    75%  { left:300px; }
-    100% { left:400px; }
-} */
-
-/* #pet1:hover {
-    background:url('../../images/WhitePet1_Png.png') 0 0;
-} */
-
-/* import React from "react";
-import ReactDOM from "react-dom";
-;
-function Loader() {
-  var spin = keyframes`
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-`;
-  var styles = {
-    border: "16px solid #eee",
-    borderTop: "16px solid #3ae",
-    borderRadius: "50%",
-    width: "1cm",
-    height: "1cm",
-    animation: `${spin} 2s linear infinite`
-  };
-  return <div style={styles} />;
+#profilePet {
+  height: 128px;
+  width: 128px;
+  /* margin-top: 75px;
+  margin-left: 50px;
+  margin-right: 50px; */
+  left: 25%;
+  top: 28%;
+  position: absolute;
+  
 }
-const rootElement = document.getElementById("root");
-ReactDOM.render(<Loader />, rootElement); */
+
+#petStatus {
+    left: 30%;
+    top: 25%;
+    position: absolute;
+}
+
+#profilePet:hover {
+    margin-right: 50px;
+    margin-top: 50px;
+    display: inline-block;
+}
+
+#petStatus:hover {
+    display: block;
+}
+  
+  /*Attempt at using keyframes to animate the pet bouncing around using a spritesheet
+  This was ultimately unsuccessful as keyframes and React seem to be very difficult to implement together
+  
+  
+  
+  #profilePet  {
+  display: block;
+  background-repeat: no-repeat;
+  background-position: -1600px -1px; 
+  animation: spriteBounce 1s steps(11) infinite;
+
+}
+
+@keyframes spriteBounce {
+    from {background-position-x: 0px;}
+      to {background-position-x: -1600px;}
+} */
+
+
+
