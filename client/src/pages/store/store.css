@@ -1,0 +1,74 @@
+.store {
+	min-height: 82vh;
+	color:black;
+	/* display:flex; */
+
+}
+
+.cart {
+	margin: 2vh 2vw 2vh 2vw;
+	width:fit-content;
+	position:absolute;
+	top:11vh;
+	right:0;
+	border: 5px solid black;
+	border-radius: 15%;
+	padding: 2vh 5vw 2vh 5vw;
+	background-color: lightgray;
+	text-align: center;
+}
+
+.cart button {
+	margin-bottom: 2vh;
+	padding: 10px 20px 10px 20px;
+	font-weight: 900;
+	border:2px solid black;
+	border-radius: 20%;
+	background-color: royalblue;
+	color: black;
+}
+
+.storekeeper {
+	margin: 2vh 2vw 2vh 2vw;
+	width:25%;
+	height: fit-content;
+	border: 5px solid black;
+	border-radius: 15%;
+	background-color: beige;
+	text-align: center;
+}
+
+.storekeeper p {
+	border-top: 3px solid black;
+	padding: 2vh 0vw 0vh 0vw;
+	/* background-color: brown; */
+	width: 100%;
+	font-weight: 900;
+	margin-top:0;
+}
+
+.storekeeper img {
+	width: 70%;
+	/* border: 1px solid black; */
+}
+
+.storeOptions {
+	border: 5px solid black;
+	margin: 10px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	background-color: burlywood;
+}
+
+.storeItem {
+	/* border: 1px solid red; */
+	width: 33.3%;
+	text-align: center;
+}
+
+.storeItem img {
+	/* border: 1px solid black; */
+    width:33%;
+	padding: 5vh 5vw 5vh 5vw;
+}
