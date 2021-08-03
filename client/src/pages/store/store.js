@@ -3,6 +3,8 @@ import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER } from '../../utils/queries';
 import { EDIT_INV } from '../../utils/mutations'
 import Auth from '../../utils/auth'
+import imgs from '../../images'
+import './store.css'
 
 const Storefront = () => {
     const [invState, setInvState] = useState({
@@ -24,12 +26,12 @@ const Storefront = () => {
     const [editInv, { error }] = useMutation(EDIT_INV)
 
     useEffect(() => {
-        setInvState({ 
+        setInvState({
             coins: userData.coins,
             food1: userData.food1,
             food2: userData.food2,
             food3: userData.food3
-         })
+        })
     }, [data])
 
 
@@ -44,7 +46,7 @@ const Storefront = () => {
         }
         const newCoinValue = invState.coins - value
         const newItemValue = storeCart[item] + 1
-        setStoreCart({ ...storeCart, [item]: newItemValue})
+        setStoreCart({ ...storeCart, [item]: newItemValue })
         setInvState({ ...invState, coins: newCoinValue })
     }
 
@@ -53,7 +55,7 @@ const Storefront = () => {
         const newFood1Value = invState.food1 + storeCart.food1
         const newFood2Value = invState.food2 + storeCart.food2
         const newFood3Value = invState.food3 + storeCart.food3
-        setInvState({ ...invState, food1: newFood1Value, food2: newFood2Value, food3: newFood3Value})
+        setInvState({ ...invState, food1: newFood1Value, food2: newFood2Value, food3: newFood3Value })
         setShowConfirm(true)
     }
 
@@ -62,59 +64,71 @@ const Storefront = () => {
         console.log(invState)
         const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-        if(!token) {
+        if (!token) {
             return false
         }
 
         try {
             const { data } = await editInv({
                 variables: {
-                    invData: {...invState}
+                    invData: { ...invState }
                 }
             })
-            console.log(data)
+            console.log(data.mutateInv.inventory.coins)
             window.location.replace('/store')
         } catch (err) {
             console.error(err)
         }
+    }
 
+    const changeShopkeep = (event, newSrc) => {
+        event.target.src = imgs[newSrc]
     }
 
     return (
-        <div>
-            <div>
-                AMOUNT OF COINS: {invState.coins} 
-                AMOUNT OF FOOD: 
-                FOOD1: {storeCart.food1} 
-                FOOD2: {storeCart.food2} 
-                FOOD3: {storeCart.food3} 
+        <div className="store">
+            <div className="storekeeper">
+                <img src={imgs.shopkeep1} onMouseOver={(event) => changeShopkeep(event, 'shopkeep2')} onMouseLeave={(event) => changeShopkeep(event, 'shopkeep1')} />
+                {!showConfirm ?
+                    (
+                        <p className="shopkeepDialogue">Welcome, click on the item to add it to your cart!</p>
+                    )
+                    :
+                    (
+                        <p className="shopkeepDialogue">Ready to checkout?</p>
+                    )}
+
             </div>
-            <div className="Store">
-                <div>
-                    <object onClick={(event) => handleStoreClick(event, "food1", 3)}>
-                        FOOD 1
-                    </object>
+            <div className="cart">
+                <h3>CART:</h3>
+                <p>Coins: {invState.coins} </p>
+                <p>Oranges: {storeCart.food1} </p>
+                <p>Cherries: {storeCart.food2} </p>
+                <p>Watermelons: {storeCart.food3} </p>
+                {showConfirm ?
+                    (
+                        <button onClick={handleConfirm}>CONFIRM</button>
+                    )
+                    :
+                    (
+                        <button onClick={handleSubmit}>CHECKOUT</button>
+                    )}
+            </div>
+            <div className="storeBoard">
+                <div className="storeOptions">
+                    <div className="storeItem" onClick={(event) => handleStoreClick(event, "food1", 3)}>
+                        <img src={imgs.orange} />
+                        <p>Orange</p>
+                    </div>
+                    <div className="storeItem" onClick={(event) => handleStoreClick(event, "food2", 5)}>
+                        <img src={imgs.cherry} />
+                        <p>Cherry</p>
+                    </div>
+                    <div className="storeItem" onClick={(event) => handleStoreClick(event, "food3", 7)}>
+                        <img src={imgs.watermelon} />
+                        <p>Watermelon</p>
+                    </div>
                 </div>
-                <div>
-                    <object onClick={(event) => handleStoreClick(event, "food2", 5)}>
-                        FOOD 2
-                    </object>
-                </div>
-                <div>
-                    <object onClick={(event) => handleStoreClick(event, "food3", 7)}>
-                        FOOD 3
-                    </object>
-                </div>
-                {showConfirm ? 
-                (
-                <button onClick={handleConfirm}>CONFIRM</button>
-                )
-                :
-                (
-                <button onClick={handleSubmit}>CHECKOUT</button>
-                )}
-
-
             </div>
         </div>
     )
