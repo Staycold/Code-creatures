@@ -1,23 +1,14 @@
 
 
-:root{
+/* :root{
     background: #242c33;
     color: #FFC8DD;
-}
+} */
 
 
 .main{
     background: #242c33;
     color: #FFC8DD;
-}
-
-.coldFooter{
-    background: #242c33;
-    color: #FFC8DD;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
 }
 
 

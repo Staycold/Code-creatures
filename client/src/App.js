@@ -16,7 +16,7 @@ import Footer from './components/Footer/footer';
 import ChallengeHub from './pages/challengeHub/challengeHub';
 import Store from './pages/store/store'
 import AddChallenge from './pages/Admin/admin';
-//import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 //import './App.css'
 
 // // Construct our main GraphQL API endpoint
