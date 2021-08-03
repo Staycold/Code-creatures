@@ -31,7 +31,7 @@ const ChallengeHub = () => {
                 
                 <img id="cloudOne" src={imgs.cloud1} alt="cloud sprite 1" />
                 <img id="cloudTwo" src={imgs.cloud3} alt="cloud sprite 2" /> 
-                <img id="sun" src={imgs.sun} alt="sun sprite" />
+                <img id="challengesun" src={imgs.sun} alt="sun sprite" />
                 <img id="cloudThree" src={imgs.cloud1} alt="cloud sprite 1" /> 
                 <img id="cloudFour" src={imgs.cloud3} alt="cloud sprite 2" /> 
                 <main className='hubBg'>
@@ -52,7 +52,7 @@ const ChallengeHub = () => {
                 </div>
                 <Link to={`/challenges/${question._id}`}>
                 {/* <h2>{question.question}</h2>  */}
-                <h2 className='linkTxt'>Question</h2> 
+                <h2 className='linkTxt'>Challenge 📝</h2> 
                         </Link>
               
               </div>

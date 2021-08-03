@@ -25,8 +25,10 @@
 .answersMain{
   height: 100vh;
   background-image: linear-gradient(#0F2027,#203A43,#2C5364);
+  /* background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/15/Thin_Line_of_Earth%27s_Atmosphere_and_the_Setting_Sun.jpg') fixed no-repeat; */
   color: #A2D2FF;
   font-size: 1.3rem;
+
 }
 
 
@@ -76,12 +78,59 @@
     transform: scale(1.05);
 }
 
+.choices:active{
+  background-image: linear-gradient(#ee9ca7,#ffdde1);
+}
+
+.choices.selected:active{
+  background-image: linear-gradient(#ee9ca7,#ffdde1);
+
+}
+
 /* a {
     font-size: 1.5rem;
     padding: 1rem 3rem;
     color: #f4f4f4;
     text-transform: uppercase;
   } */
+
+  .verify{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.3rem;
+    color: #5635cf;
+    background-image: linear-gradient(#F7971E,#FFD200);
+  }
+
+  .verify2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.3rem;
+    color: #277797;
+    background-image: linear-gradient(#FFD200,#F7971E);
+  }
+
+  .verify3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.3rem;
+    color: #e1f151;
+    background-image: linear-gradient(#93291E,#93291E);
+  }
+  
+
+  .verify4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.3rem;
+    color: #277797;
+    background-image: linear-gradient(#93291E,#93291E);
+  }
+  
   
 
   /* =========================Start of BUTTON================= */
