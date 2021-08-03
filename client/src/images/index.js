@@ -14,7 +14,11 @@ import watermelon from './watermelon.png'
 import shopkeep1 from './shopkeep1.png'
 import shopkeep2 from './shopkeep2.png'
 import shopkeep3 from './shopkeep3.png'
+
+import shopkeep4 from './shopkeep4.png'
+
 import happy from './sprites/Status_Happy.png'
+
 
 const imgs = {
     cat,
@@ -33,7 +37,10 @@ const imgs = {
     shopkeep1,
     shopkeep2,
     shopkeep3,
+
+    shopkeep4,
     happy
+
 }
 
 export default imgs
