@@ -87,6 +87,7 @@ const Storefront = () => {
 
     return (
         <div className="store">
+            <div className="spacer">'</div>
             <div className="storekeeper">
                 <img src={imgs.shopkeep1} onMouseOver={(event) => changeShopkeep(event, 'shopkeep2')} onMouseLeave={(event) => changeShopkeep(event, 'shopkeep1')} />
                 {!showConfirm ?

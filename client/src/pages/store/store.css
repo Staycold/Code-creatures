@@ -1,10 +1,15 @@
 .store {
-	min-height: 85.5vh;
+	min-height: 87.5vh;
 	color:black;
+	margin:0;
 	/* display:flex; */
-
+	background-image: url('../../images/store-background.jpg');
+	background-size: 100vh;
 }
 
+.spacer {
+	width:2vh;
+}
 .cart {
 	margin: 2vh 2vw 2vh 2vw;
 	width:fit-content;
