@@ -1,0 +1,18 @@
+.newpet-body {
+    height: 87.5vh;
+    text-align: center;
+}
+
+.newpet-options {
+    display: flex;
+    width: 100%;
+    height: 30vh;
+    position:absolute;
+    bottom: 0vh;
+    justify-content: center;
+    background-image: url('../../images/Grass_Texture.png');
+}
+
+.newpet-card {
+    margin: 2vh 4vw 2vh 4vw;
+}
