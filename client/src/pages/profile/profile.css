@@ -2,18 +2,20 @@
 .profileContainer {
     display: flex;
     flex: 1 1 auto;
+    height: 95vh;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-image: url('../../images/store-background.jpg');
 }
 
 .petContainer2 {
-    width: 50vw;
-    height: 50vh;
+    width: 45vw;
+    height: 55vh;
     background-image: url('../../images/Grass_Texture.png');
     border: 1px solid green;
     border-radius: 3px;
-    margin-top: auto;
+    margin-top: vh;
     display: inline-block;
 }
 
@@ -38,14 +40,14 @@
   margin-left: 50px;
   margin-right: 50px; */
   left: 25%;
-  top: 28%;
+  top: 45%;
   position: absolute;
   
 }
 
 #petStatus {
     left: 30%;
-    top: 25%;
+    top: 42%;
     position: absolute;
 }
 
@@ -59,8 +61,25 @@
     display: block;
 }
   
+#tree {
+    position: absolute;
+    right:50%;
+    top: 30%
+}
+
+#boulders {
+    position: absolute;
+    right: 80%;
+    bottom: 15%;
+}
+
+#bush {
+    position: absolute;
+}
+
   /*Attempt at using keyframes to animate the pet bouncing around using a spritesheet
   This was ultimately unsuccessful as keyframes and React seem to be very difficult to implement together
+  and we were under a time crunch
   
   
   

@@ -140,21 +140,24 @@ const Profile = () => {
         }
     }
 
-    //trying to get keyframes working using styled-components
-    //this was ultimately unsuccessful as keyframes and React seem to be hard to get working together
-    // const spriteBounce = keyframes`
-    //     from {background-position-x: 0px;}
-    //       to {background-position-x: -1600px;}`;
+//trying to get keyframes working using styled-components
 
+//this was ultimately unsuccessful as keyframes and React seem to be hard to get working together and we were under a time crunch
 
-    // const Bouncy = styled.div`
-    //   display: block;
-    //   background-image: ${imgs[sprite]};
-    //   background-repeat: no-repeat;
-    //   background-position: -1600px -1px; 
-    //   animation: ${spriteBounce} 1s steps(11) infinite;
-    //   height: 128px;
-    //   width: 128px;`
+// const spriteBounce = keyframes`
+//     from {background-position-x: 0px;}
+//       to {background-position-x: -1600px;}`;
+      
+
+// const Bouncy = styled.div`
+//   display: block;
+//   background-image: ${imgs[sprite]};
+//   background-repeat: no-repeat;
+//   background-position: -1600px -1px; 
+//   animation: ${spriteBounce} 1s steps(11) infinite;
+//   height: 128px;
+//   width: 128px;`
+
 
     return (
         <main>
@@ -163,8 +166,11 @@ const Profile = () => {
             ) : (
                 <div className="profileContainer">
                     <div className="petContainer2 petContainerHover">
-                        <img id="petStatus" src={imgs.happy} alt="pet-status" hidden />
-                        <img id="profilePet" src={imgs[sprite]} alt="your-pet" onMouseOver={() => petStatus(true)} onMouseLeave={() => petStatus(false)} />
+                    <img id="petStatus" src={imgs.happy} alt="pet-status" hidden/>
+                    <img id="profilePet" src={imgs[sprite]} alt="your-pet" onMouseOver={() => petStatus(true)} onMouseLeave={() => petStatus(false)}/>
+                    <img id="bush" src={imgs.bush} alt="bush" />
+                    <img id="tree" src={imgs.tree} alt="tree" />
+                    <img id="boulders" src={imgs.boulders} alt="boulders" />
                     </div>
                     <div className="card profileInfoBoxes">
                         <div className="card-header">
