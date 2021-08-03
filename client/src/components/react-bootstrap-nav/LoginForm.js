@@ -17,26 +17,35 @@ const LoginForm = () => {
     setUserFormData({ ...userFormData, [name]: value });
   };
 
-  const [login, { error }] = useMutation(LOGIN_USER);
+  const [login] = useMutation(LOGIN_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // check if form has everything (as per react-bootstrap docs)
+    // check for form validity
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
+    // check if there is existing token
+    const existingToken = Auth.getToken();
+    // if there is an expired token, remove token
+    if (existingToken) {
+      localStorage.removeItem('id_token');
+    }
 
     try {
       const { data } = await login({ variables: { ...userFormData } });
+      // login if correct
       Auth.login(data.login.token);
     } catch (err) {
       console.error(err);
+      // if something goes wrong, show alert
       setShowAlert(true);
     }
 
+    // sets user form back to blank
     setUserFormData({
       username: '',
       email: '',
@@ -47,10 +56,12 @@ const LoginForm = () => {
   return (
     <>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+        {/* error alert */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your login credentials!
         </Alert>
         <Form.Group>
+          {/* email input */}
           <Form.Label htmlFor='email'>Email</Form.Label>
           <Form.Control
             type='text'
@@ -60,10 +71,10 @@ const LoginForm = () => {
             value={userFormData.email}
             required
           />
-          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group>
+          {/* password portion */}
           <Form.Label htmlFor='password'>Password</Form.Label>
           <Form.Control
             type='password'
@@ -73,8 +84,8 @@ const LoginForm = () => {
             value={userFormData.password}
             required
           />
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
+        {/* button is disabled if not all fields are filled out */}
         <Button
           className="submitBtn"
           disabled={!(userFormData.email && userFormData.password)}

@@ -19,7 +19,7 @@ const SignupForm = () => {
     setUserFormData({ ...userFormData, [name]: value });
   };
 
-  const [addUser, { error }] = useMutation(ADD_USER);
+  const [addUser] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -30,6 +30,13 @@ const SignupForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
+    // check for existing token
+    const existingToken = Auth.getToken();
+    // remove existing token if it exists
+    if (existingToken) {
+      localStorage.removeItem('id_token');
+    }
+
 
     try {
       const { data } = await addUser({ variables: { ...userFormData } });
@@ -65,7 +72,6 @@ const SignupForm = () => {
             value={userFormData.username}
             required
           />
-          {/* <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback> */}
         </Form.Group>
 
         <Form.Group>
@@ -78,7 +84,6 @@ const SignupForm = () => {
             value={userFormData.email}
             required
           />
-          {/* <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback> */}
         </Form.Group>
 
         <Form.Group>
@@ -91,8 +96,8 @@ const SignupForm = () => {
             value={userFormData.password}
             required
           />
-          {/* <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback> */}
         </Form.Group>
+        {/* button is disabled if any field is not filled out */}
         <Button
           className="submitBtn"
           disabled={!(userFormData.username && userFormData.email && userFormData.password)}

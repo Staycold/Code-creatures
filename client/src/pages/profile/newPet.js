@@ -6,18 +6,21 @@ import imgs from '../../images/index.js';
 
 const NewPet = () => {
     const [showPetModal, setShowPetModal] = useState(false);
+    // state to track pet name and type
     const [newPetData, setNewPetData] = useState({
         petName: '',
         petType: '',
     })
 
-    const [addPet, { error }] = useMutation(ADD_PET)
+    const [addPet] = useMutation(ADD_PET)
 
+    // if they confirm on the pet they can input a new
     const choosePet = (arg) => {
         setShowPetModal(true);
         setNewPetData({ ...newPetData, petType: arg })
     }
 
+    // if they click on the x, they can change their pet type
     const exitModal = () => {
         setShowPetModal(false);
         setNewPetData({ ...newPetData, petType: '' })
@@ -27,7 +30,8 @@ const NewPet = () => {
         const { name, value } = event.target;
         setNewPetData({ ...newPetData, [name]: value })
     }
-
+    
+    // event handler to submit pet name and type
     const handlePetFormSubmit = async (event) => {
         event.preventDefault();
         const petToSave = {
@@ -45,12 +49,11 @@ const NewPet = () => {
         }
         
         try {
-            const { data } = await addPet({
+            await addPet({
                 variables: {
                     petData: { ...petToSave }
                 }
             })
-            console.log(data)
             window.location.replace('/profile');
         } catch (err) {
             console.error(err)

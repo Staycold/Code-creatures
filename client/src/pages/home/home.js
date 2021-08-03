@@ -3,8 +3,8 @@ import imgs from '../../images';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './home.css'
 
+// homepage
 const Home = () => {
-
     return (
         <main>
             <div className = 'home-body'>

@@ -6,13 +6,16 @@ import Auth from '../../utils/auth'
 import imgs from '../../images'
 import './store.css'
 
+// store page
 const Storefront = () => {
+    // state to track inventory
     const [invState, setInvState] = useState({
         coins: 0,
         food1: 0,
         food2: 0,
         food3: 0,
     })
+    // state to track cart
     const [storeCart, setStoreCart] = useState({
         food1: 0,
         food2: 0,
@@ -24,6 +27,7 @@ const Storefront = () => {
 
     const [editInv] = useMutation(EDIT_INV)
 
+    // sets state when data loads
     useEffect(() => {
         setInvState({
             coins: userData.coins,
@@ -33,11 +37,11 @@ const Storefront = () => {
         })
     }, [data])
 
-
     if (loading) {
         return <h2>LOADING</h2>
     }
 
+    // when they click an item, adds to cart if they have enough money
     const handleStoreClick = async (event, item, value) => {
         event.preventDefault();
         if (invState.coins < value) {
@@ -49,9 +53,11 @@ const Storefront = () => {
         setInvState({ ...invState, coins: newCoinValue })
     }
 
+    // event handler to check out cart
     const handleSubmit = async (event) => {
         event.preventDefault();
         const shopDialogue = document.querySelector('#shopDialogue')
+        // changes shopkeep dialogue
         if (storeCart.food1 === 0 && storeCart.food2 === 0 && storeCart.food3 === 0) {
             changeShopkeep('shopkeep4')
             shopDialogue.innerHTML='Please put something in your cart'
@@ -62,7 +68,6 @@ const Storefront = () => {
         const newFood2Value = invState.food2 + storeCart.food2
         const newFood3Value = invState.food3 + storeCart.food3
         event.preventDefault();
-        console.log(invState)
         const token = Auth.loggedIn() ? Auth.getToken() : null;
 
         if (!token) {
@@ -81,18 +86,21 @@ const Storefront = () => {
                 }
             })
 
+            // sets cart state back
             setStoreCart({
                 food1: 0,
                 food2: 0,
                 food3: 0,
             })
 
+            // sets inventory state to match with backend
             setInvState({
                 coins: invState.coins,
                 food1: newFood1Value,
                 food2: newFood2Value,
                 food3: newFood3Value,
             })
+
             changeShopkeep('shopkeep3')
             shopDialogue.innerHTML="Thanks, come again soon!"
         } catch (err) {
@@ -101,6 +109,7 @@ const Storefront = () => {
 
     }
 
+    // changes shopkeep sprite
     const changeShopkeep = (newSrc) => {
         const shopkeep = document.querySelector('#shopkeep')
         shopkeep.src = imgs[newSrc]
@@ -112,14 +121,6 @@ const Storefront = () => {
             <div className="storekeeper">
                 <img alt="shopkeeper" id="shopkeep" src={imgs.shopkeep1} onMouseOver={() => changeShopkeep('shopkeep2')} onMouseLeave={() => changeShopkeep('shopkeep1')} />
                 <p id="shopDialogue">Welcome, click on the item to add it to your cart!</p>
-                {/* {!showConfirm ?
-                    (
-                        <p className="shopkeepDialogue">Welcome, click on the item to add it to your cart!</p>
-                    )
-                    :
-                    (
-                        <p className="shopkeepDialogue">Thanks for buying!</p>
-                    )} */}
 
             </div>
             <div className="cart">
