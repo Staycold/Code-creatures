@@ -107,7 +107,15 @@ const resolvers = {
         { new: true }
       )
       return user
-    }
+    },
+    addCoins: async (parent, args, context) => {
+      const user = await User.findByIdAndUpdate(
+        { _id: context.user._id },
+        { $inc: { 'inventory.coins': args.coins } },
+        { new: true }
+      )
+      return user
+    },
   }
 }
 

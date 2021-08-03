@@ -16,12 +16,12 @@ const inventorySchema = new Schema(
         food2: {
             type: Number,
             required: true,
-            default: 1,
+            default: 0,
         },
         food3: {
             type: Number,
             required: true,
-            default: 1,
+            default: 0,
         },
     },
 );
