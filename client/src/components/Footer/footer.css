@@ -1,6 +1,17 @@
-.coldFooter {
+/* .coldFooter {
     position: sticky;
     height: 125px;
     background-color: rgb(105, 233, 105);
     bottom: 0;
-  }
+  } */
+
+  .coldFooter{
+    background: #242c33;
+     /* background-color: rgb(105, 233, 105); */
+    color: #FFC8DD;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+}
