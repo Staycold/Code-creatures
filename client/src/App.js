@@ -16,6 +16,7 @@ import Footer from './components/Footer/footer';
 import ChallengeHub from './pages/challengeHub/challengeHub';
 import Store from './pages/store/store'
 import AddChallenge from './pages/Admin/admin';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import AppNavbar from './components/react-bootstrap-nav/Navbar'
 //import 'bootstrap/dist/css/bootstrap.min.css'
 //import './App.css'

@@ -1,5 +1,6 @@
 import React from 'react';
 import imgs from '../../images';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './home.css'
 
 const Home = () => {

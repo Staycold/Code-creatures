@@ -2,14 +2,14 @@
 .profileContainer {
     display: flex;
     flex: 1 1 auto;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-
 .petContainer2 {
-    width: 500px;
+    width: 40vw;
+    height: 40vh;
     background-image: url('../../images/Grass_Texture.png');
     border: 1px solid green;
     border-radius: 3px;
@@ -17,19 +17,24 @@
 }
 
 
-.petInfo, .inventoryInfo {
-    height: 300px;
-    width: 300px;
+.profileInfoBoxes {
+    height: 25rem;
+    width: 25rem;
     border: 1px solid rgb(82, 60, 13);
     border-radius: 5px;
     background-color: rgb(250, 247, 233);
-    padding: 15px;
 }
 
-
-#profilePet {
-    margin: auto;
+.btn-food {
+    background-color: burlywood;
+    color: rgb(70, 27, 7);
+    border: 1px solid rgb(82, 60, 13)
 }
+
+/* #profilePet {
+    width: 128px;
+    height: 128px;
+} */
 /* 
 keyframes to animate pet sprite bouncing around (if i can get it to work)
 @keyframes petOnProfile {
@@ -43,3 +48,24 @@ keyframes to animate pet sprite bouncing around (if i can get it to work)
 /* #pet1:hover {
     background:url('../../images/WhitePet1_Png.png') 0 0;
 } */
+
+/* import React from "react";
+import ReactDOM from "react-dom";
+;
+function Loader() {
+  var spin = keyframes`
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+`;
+  var styles = {
+    border: "16px solid #eee",
+    borderTop: "16px solid #3ae",
+    borderRadius: "50%",
+    width: "1cm",
+    height: "1cm",
+    animation: `${spin} 2s linear infinite`
+  };
+  return <div style={styles} />;
+}
+const rootElement = document.getElementById("root");
+ReactDOM.render(<Loader />, rootElement); */
