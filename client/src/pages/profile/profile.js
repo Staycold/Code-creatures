@@ -123,7 +123,9 @@ const petStatus = (hover) => {
 }
 
 //trying to get keyframes working using styled-components
-//this was ultimately unsuccessful as keyframes and React seem to be hard to get working together
+
+//this was ultimately unsuccessful as keyframes and React seem to be hard to get working together and we were under a time crunch
+
 // const spriteBounce = keyframes`
 //     from {background-position-x: 0px;}
 //       to {background-position-x: -1600px;}`;
@@ -147,6 +149,9 @@ const petStatus = (hover) => {
                     <div className="petContainer2 petContainerHover">
                     <img id="petStatus" src={imgs.happy} alt="pet-status" hidden/>
                     <img id="profilePet" src={imgs[sprite]} alt="your-pet" onMouseOver={() => petStatus(true)} onMouseLeave={() => petStatus(false)}/>
+                    <img id="bush" src={imgs.bush} alt="bush" />
+                    <img id="tree" src={imgs.tree} alt="tree" />
+                    <img id="boulders" src={imgs.boulders} alt="boulders" />
                     </div>
                     <div className="card profileInfoBoxes">
                     <div className="card-header">
