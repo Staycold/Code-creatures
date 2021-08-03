@@ -62,7 +62,8 @@ type Mutation {
     addChallenge( challenge: challengeData!): Question
     mutateInv( invData: InventoryData! ) : User
     addExp(petExp: Int! ) : User
-    addHappiness(hapValue: Int!):User
+    addHappiness(hapValue: Int!): User
+    addCoins(coins:Int!): User
 }
 
 input InventoryData {

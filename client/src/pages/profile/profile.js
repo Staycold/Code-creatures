@@ -76,7 +76,20 @@ const Profile = () => {
             return
         } else {
             const newFoodVal = inv[food] - 1
-            setInv({ ...inv, [food]: newFoodVal })
+            const dataToInput = { ...inv, [food]: newFoodVal }
+            let newHapValue = 0
+
+            switch (food) {
+                case "food1":
+                    newHapValue = 3
+                    break;
+                case "food2":
+                    newHapValue = 5
+                    break;
+                case "food3":
+                    newHapValue = 7
+                    break;
+            }
 
             const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -88,13 +101,13 @@ const Profile = () => {
             try {
                 const { data } = await editInv({
                     variables: {
-                        invData: { ...inv }
+                        invData: { ...dataToInput }
                     }
                 })
 
                 const hap = await addHap({
                     variables: {
-                        hapValue: 10
+                        hapValue: newHapValue
                     }
                 })
                 // console.log(data.mutateInv)
@@ -140,9 +153,9 @@ const Bouncy = styled.img`
 
     return (
         <main>
-            <div>
+            {/* <div>
                 <button onClick={() => console.log(userData.pets[0])}>HERE</button>
-            </div>
+            </div> */}
             {hasNoPet() ? (
                 <NewPet />
             ) : (

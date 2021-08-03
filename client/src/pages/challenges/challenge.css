@@ -6,10 +6,26 @@
 } */
 
 
-.main{
+/* .main{
     background: #242c33;
     color: #FFC8DD;
+} */
+
+
+
+/* .coldFooter{
+    background: #242c33;
+    color: #FFC8DD;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+} */
+
+.main{
+  height: 100vh;
 }
+
 
 
 .title{
@@ -66,7 +82,7 @@
   
 
   /* =========================Start of BUTTON================= */
-  .btn {
+  .faBtn {
     text-decoration: none;
     border: 1px solid rgb(146, 148, 248);
     position: relative;
@@ -79,11 +95,11 @@
     font-size: 1.4rem;
   }
   
-  .btn:hover {
+  .faBtn:hover {
     box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
   }
   
-  .btn:before {
+  .faBtn:before {
     content: "";
     position: absolute;
     top: 0;
@@ -99,7 +115,7 @@
     transition: all 650ms;
   }
   
-  .btn:hover:before {
+  .faBtn:hover:before {
     left: 100%;
   }
 
