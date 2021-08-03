@@ -26,11 +26,11 @@ and sharpen coding knowledge, all in one place!
     
 *[Links](#links)
     
-*[License](#license)
+
     
 *[Screenshots](#screenshots)
     
-*[Cold Tirumvirate](#cold-tirumvirate)
+*[Cold Triumvirate](#cold-tirumvirate)
     
   ## Description
  <h3>
@@ -62,9 +62,6 @@ Heroku Deployed:
 
 </h3>
 
-  ## License
-  
-  (https://opensource.org/licenses/MIT)
 
 
 

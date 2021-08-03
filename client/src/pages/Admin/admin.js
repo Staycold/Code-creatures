@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Auth from '../../utils/auth'
 import { useMutation } from '@apollo/client';
 import { ADD_CHALLENGE } from '../../utils/mutations';
+import './admin.css'
 
 const AddChallenge = () => {
 
@@ -80,13 +81,14 @@ const AddChallenge = () => {
      
       return (
         <>
-          
+          <div className='inputVal'>
           <form noValidate onSubmit={handleFormSubmit}>
            
     
             <div>
               <h2 htmlFor='question'>Question</h2>
-              <input
+              <textarea rows="10" cols='69'
+                className='qtext'
                 type='text'
                 placeholder='Question'
                 name='question'
@@ -99,7 +101,8 @@ const AddChallenge = () => {
     
             <div>
               <h2 htmlFor='correctAnswer'>Answer</h2>
-              <input
+              <textarea rows="7" cols="47"
+              className='qtext'
                 type='text'
                 placeholder='Answer'
                 name='correctAnswer'
@@ -112,7 +115,8 @@ const AddChallenge = () => {
     
             <div>
               <h2 htmlFor='choices1'>Choice one</h2>
-              <input
+              <textarea rows="7" cols="47"
+              className='qtext'
                 type='text'
                 placeholder='Your choices'
                 name='choice1'
@@ -125,7 +129,8 @@ const AddChallenge = () => {
 
             <div>
               <h2 htmlFor='choices2'>Choice two</h2>
-              <input
+              <textarea rows="7" cols="47"
+              className='qtext'
                 type='text'
                 placeholder='Your choices'
                 name='choice2'
@@ -138,7 +143,8 @@ const AddChallenge = () => {
 
             <div>
               <h2 htmlFor='choices3'>Choice three</h2>
-              <input
+              <textarea rows="7" cols="47"
+              className='qtext'
                 type='text'
                 placeholder='Your choices'
                 name='choice3'
@@ -148,13 +154,14 @@ const AddChallenge = () => {
               />
               
             </div>
-            <button
+            <button className='suBtn'
             //   disabled={!(challengeData.username && challengeData.correctAnswer && challengeData.choices)}
               type='submit'
               variant='success'>
               Submit
             </button>
           </form>
+          </div>
         </>
       );
 

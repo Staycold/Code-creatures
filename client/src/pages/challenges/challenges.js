@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client'
 import { GET_SINGLE_CHALLENGE } from '../../utils/queries';
+import imgs from '../../images';
 import { ADD_EXP, ADD_COINS } from '../../utils/mutations';
 
 import './challenge.css'
@@ -98,7 +99,10 @@ const Challenges = () => {
 
 
         return (
-            <main className="main">
+
+            
+            <main className="answersMain" >
+                {/* <img id="spaceSun" src={imgs.sun} alt="sun sprite" /> */}
                 <div className='title'>
                     Take your time :)
                 </div>

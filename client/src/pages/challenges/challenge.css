@@ -22,8 +22,11 @@
     justify-content: center;
 } */
 
-.main{
+.answersMain{
   height: 100vh;
+  background-image: linear-gradient(#0F2027,#203A43,#2C5364);
+  color: #A2D2FF;
+  font-size: 1.3rem;
 }
 
 
@@ -122,4 +125,11 @@
 /* ====================== END OF BUTTON================== */
 
   /* challenge hub */
+
+  #spaceSun {
+    float: right;
+    margin-right: 45px;
+    width: 100px;
+    height: 100px;
+}
 
