@@ -26,7 +26,7 @@ and sharpen coding knowledge, all in one place!
     
 - [Links](#links)
     
-
+- [Assets](#assets)
     
 - [Screenshots](#screenshots)
     
