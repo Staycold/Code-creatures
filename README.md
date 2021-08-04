@@ -19,20 +19,20 @@ and sharpen coding knowledge, all in one place!
 ## Table of contents
 
     
-*[Contributing](#contributing)
+- [Contributing](#contributing)
     
-*[Description](#description)
+- [Description](#description)
     
     
-*[Links](#links)
+- [Links](#links)
     
 
     
-*[Screenshots](#screenshots)
+- [Screenshots](#screenshots)
     
-*[Cold Triumvirate](#cold-tirumvirate)
+- [Cold Triumvirate](#cold-tirumvirate)
     
-  ## Description
+## Description
  <h3>
  The Cold Triumvirate, wanted to make an app where people can practice coding challenges in a fun and relaxed enviroment.
  Earn experience and level up your pet by completeing challenging daily coding questions.
@@ -70,11 +70,13 @@ Heroku Deployed:
   If you would like to consider contributing towards further development of this project please contact any one of the team members below.
 
   ## Assets
-  Sun: http://clipart-library.com/clipart/BziXxdxcB.htm
-  Pet assets: https://comigo.itch.io/farm-puzzle-animals
-  Shopkeeper: https://heamomo.itch.io/white-dog
-  Fruit icons: https://gamedeveloperstudio.itch.io/fruits-icon-pack
-  Wood background: https://www.vecteezy.com/vector-art/2193057-wood-texture-background
+  <ul>
+  <li>Sun: http://clipart-library.com/clipart/BziXxdxcB.htm
+  <li>Pet assets: https://comigo.itch.io/farm-puzzle-animals
+  <li>Shopkeeper: https://heamomo.itch.io/white-dog
+  <li>Fruit icons: https://gamedeveloperstudio.itch.io/fruits-icon-pack
+  <li>Wood background: https://www.vecteezy.com/vector-art/2193057-wood-texture-background
+  </ul>
 
   ## Screenshots
 
