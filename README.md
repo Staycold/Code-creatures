@@ -30,7 +30,7 @@ and sharpen coding knowledge, all in one place!
     
 - [Screenshots](#screenshots)
     
-- [Cold Triumvirate](#cold-tirumvirate)
+- [Cold Triumvirate](#cold-triumvirate)
     
 ## Description
  <h3>
@@ -85,9 +85,9 @@ Heroku Deployed:
 
 
 
-    ** Screenshots could differ from live expereince **
+    ** Screenshots may differ from live experience **
 
-  ## Cold Tirumvirate
+  ## Cold Triumvirate
    
    <h3>
    
