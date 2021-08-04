@@ -69,6 +69,13 @@ Heroku Deployed:
   
   If you would like to consider contributing towards further development of this project please contact any one of the team members below.
 
+  ## Assets
+  Sun: http://clipart-library.com/clipart/BziXxdxcB.htm
+  Pet assets: https://comigo.itch.io/farm-puzzle-animals
+  Shopkeeper: https://heamomo.itch.io/white-dog
+  Fruit icons: https://gamedeveloperstudio.itch.io/fruits-icon-pack
+  Wood background: https://www.vecteezy.com/vector-art/2193057-wood-texture-background
+
   ## Screenshots
 
   <img src='./rmassets/landing.png'>
