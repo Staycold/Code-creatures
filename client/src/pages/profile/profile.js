@@ -53,6 +53,15 @@ const Profile = () => {
         if (userData.pets[0].petType === 'rabbit') {
             setSprite('rabbit')
         }
+        if (userData.pets[0].petType === 'chick') {
+            setSprite('chick')
+        }
+        if (userData.pets[0].petType === 'mouse') {
+            setSprite('mouse')
+        }
+        if (userData.pets[0].petType === 'pig') {
+            setSprite('pig')
+        }
         if (userData.pets[0].petType === 'cat') {
             setSprite('cat')
         }

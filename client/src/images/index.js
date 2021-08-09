@@ -19,6 +19,9 @@ import happy from './sprites/Status_Happy.png'
 import bush from './Bush2x.png'
 import tree from './Tree2x.png'
 import boulders from './Boulders2x.png'
+import chick from './sprites/Chick_Down.png'
+import pig from './sprites/Pig_Down.png'
+import mouse from './sprites/Mouse_Down.png'
 
 
 const imgs = {
@@ -42,7 +45,10 @@ const imgs = {
     happy,
     bush,
     tree,
-    boulders
+    boulders,
+    chick,
+    pig,
+    mouse
 
 }
 
