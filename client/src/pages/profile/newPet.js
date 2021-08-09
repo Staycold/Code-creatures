@@ -77,6 +77,18 @@ const NewPet = () => {
                     <img src={imgs.rabbit} alt='rabbit pet' />
                     <p>Bunny</p>
                 </div>
+                <div className="newpet-card" onClick={() => choosePet('chick')}>
+                    <img src={imgs.chick} alt='chick pet' />
+                    <p>Chick</p>
+                </div>
+                <div className="newpet-card" onClick={() => choosePet('pig')}>
+                    <img src={imgs.pig} alt='pig pet' />
+                    <p>Piggy</p>
+                </div>
+                <div className="newpet-card" onClick={() => choosePet('mouse')}>
+                    <img src={imgs.mouse} alt='mouse pet' />
+                    <p>Mouse</p>
+                </div>
             </div>
 
             <p>{newPetData.rabbit}</p>

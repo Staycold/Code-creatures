@@ -15,7 +15,6 @@
     background-image: url('../../images/Grass_Texture.png');
     border: 1px solid green;
     border-radius: 3px;
-    margin-top: vh;
     display: inline-block;
 }
 
