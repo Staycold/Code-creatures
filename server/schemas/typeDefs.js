@@ -64,6 +64,7 @@ type Mutation {
     addExp(petExp: Int! ) : User
     addHappiness(hapValue: Int!): User
     addCoins(coins:Int!): User
+    updateLvl(petExp: Int!, petLvl: Int!): User
 }
 
 input InventoryData {

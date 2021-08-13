@@ -102,4 +102,18 @@ mutation addCoins($coins: Int!){
   }
 }
 `
+
+export const UPDATE_LVL = gql`
+mutation updateLvl($petExp: Int!, $petLvl: Int!){
+  updateLvl(petExp:$petExp, petLvl:$petLvl){
+    username
+    pets{
+      petName
+      level
+      experience
+    }
+  }
+}
+`
+
 ;

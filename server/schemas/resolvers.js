@@ -107,6 +107,15 @@ const resolvers = {
       )
       return user
     },
+    updateLvl: async ( parent, {petExp, petLvl}, context) => {
+      const user = await User.findByIdAndUpdate(
+        { _id: context.user._id },
+        { $set:{'pets.0.experience': petExp,
+         'pets.0.level': petLvl}},
+         {new: true}        
+      )
+      return user 
+    }
   }
 }
 

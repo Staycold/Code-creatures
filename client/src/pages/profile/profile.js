@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER } from '../../utils/queries';
-import { EDIT_INV, ADD_HAP } from '../../utils/mutations';
+import { EDIT_INV, ADD_HAP, UPDATE_LVL } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 import NewPet from './newPet';
 import imgs from '../../images/index.js'
@@ -26,10 +26,15 @@ const Profile = () => {
     const [happiness, setHappiness] = useState(0)
     // state to track sprite
     const [sprite, setSprite] = useState('cat')
+    // state for experience
+    const [experience, setExperience] = useState({exp: 0, level: 0})
+
+
     let petData
 
     const [editInv] = useMutation(EDIT_INV)
     const [addHap] = useMutation(ADD_HAP)
+    const [updateLvl] = useMutation(UPDATE_LVL)
 
     // on load, set states
     useEffect(() => {
@@ -65,7 +70,12 @@ const Profile = () => {
         if (userData.pets[0].petType === 'cat') {
             setSprite('cat')
         }
+        if ( userData.pets[0].experience > userData.pets[0].level * 50){
+            levelUp(userData.pets[0].level+1)
+        }
         setHappiness(userData.pets[0].happiness)
+        setExperience({exp: userData.pets[0].experience, 
+            level: userData.pets[0].level})
     }, [data])
 
     if (loading) {
@@ -139,6 +149,24 @@ const Profile = () => {
 
     }
 
+    const levelUp = async (newLevel) => {
+        try {
+            const { data } = await updateLvl({
+                variables: {
+                    petExp: 0,
+                    petLvl: newLevel
+                }
+            })
+            console.log(data)
+            setExperience({exp: data.updateLvl.pets[0].experience, 
+                level: data.updateLvl.pets[0].level})
+            
+        } catch (err) {
+            console.error(err)
+        }
+
+    }
+
     const petStatus = (hover) => {
         const hoverStatus = document.querySelector('#petStatus');
         if (hover) {
@@ -187,8 +215,8 @@ const Profile = () => {
                         </div>
                         <div className="card-body">
                             <h5 className="card-title">{petData.petName}</h5>
-                            <p className="card-text">Experience: {petData.experience} </p>
-                            <p className="card-text">Level: {petData.level} </p>
+                            <p className="card-text">Experience: {experience.exp} </p>
+                            <p className="card-text">Level: {experience.level} </p>
                             <p className="card-text">Happiness: {happiness} </p>
                         </div>
                     </div>
